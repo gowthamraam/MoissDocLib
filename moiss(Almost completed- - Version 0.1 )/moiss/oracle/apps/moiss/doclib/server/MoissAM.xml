@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='windows-1252' ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+
+<AppModule
+   Name="MoissAM"
+   ComponentClass="moiss.oracle.apps.moiss.doclib.server.MoissAMImpl" >
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_version" Value="10.1.3.41.57" />
+      <Attr Name="_deployType" Value="0" />
+   </DesignTime>
+   <ViewUsage
+      Name="DocIdUVO"
+      ViewObjectName="moiss.oracle.apps.moiss.doclib.server.DocIdUVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="DocLibUserVO"
+      ViewObjectName="moiss.oracle.apps.moiss.doclib.server.DocLibUserVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="PPRVO"
+      ViewObjectName="moiss.oracle.apps.moiss.doclib.ppr.server.PPRVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="deptVO"
+      ViewObjectName="moiss.oracle.apps.moiss.doclib.poplist.server.deptVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="categoryVO"
+      ViewObjectName="moiss.oracle.apps.moiss.doclib.poplist.server.categoryVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="DocLibVO1"
+      ViewObjectName="moiss.oracle.apps.moiss.doclib.server.DocLibVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="DocLibVO"
+      ViewObjectName="moiss.oracle.apps.moiss.doclib.server.DocLibVO" >
+   </ViewUsage>
+</AppModule>

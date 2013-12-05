@@ -1,0 +1,131 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oa:header version="10.1.3_1312" xml:lang="en-US" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <ui:contents>
+      <oa:defaultSingleColumn id="Stable" headerDisabled="false">
+         <ui:contents>
+            <oa:tableLayout id="region222" hAlign="center">
+               <ui:contents>
+                  <oa:rowLayout id="FirstRow1">
+                     <ui:contents>
+                        <oa:cellFormat id="region261" height="10">
+                           <ui:contents>
+                              <oa:spacer id="item21" width="100"/>
+                           </ui:contents>
+                        </oa:cellFormat>
+                        <oa:cellFormat id="region241" height="10">
+                           <ui:contents>
+                              <oa:messageStyledText id="DocumentName1" dataType="VARCHAR2" prompt="DocumentName" viewName="DocLibVO" viewAttr="DocumentName" maximumLength="150" rendered="true" styleClass="OraDataText"/>
+                           </ui:contents>
+                        </oa:cellFormat>
+                     </ui:contents>
+                  </oa:rowLayout>
+                  <oa:rowLayout id="spacingRegion1">
+                     <ui:contents>
+                        <oa:cellFormat id="region351" height="10">
+                           <ui:contents>
+                              <oa:spacer id="item51" height="10"/>
+                           </ui:contents>
+                        </oa:cellFormat>
+                     </ui:contents>
+                  </oa:rowLayout>
+                  <oa:rowLayout id="SecondRows1">
+                     <ui:contents>
+                        <oa:cellFormat id="region41" height="10">
+                           <ui:contents>
+                              <oa:defaultSingleColumn id="region111" headerDisabled="true">
+                                 <ui:contents>
+                                    <oa:messageStyledText id="DocumentNumber112" dataType="VARCHAR2" prompt="Document Number" viewName="DocLibVO" viewAttr="DocumentNumber" maximumLength="60" styleClass="OraDataText"/>
+                                    <oa:messageTextInput id="VersionNumber1" dataType="VARCHAR2" prompt="Version Number" viewName="DocLibVO" viewAttr="VersionNumber" maximumLength="60" columns="6" tipType="shortTip" tipMessageAppShortName="Welc" tipMessageName="Please Enter your updated version Name"/>
+                                    <oa:messageStyledText id="OwningDeptDesc111" dataType="VARCHAR2" prompt="Owning Dept Desc" viewName="DocLibVO" viewAttr="OwningDeptDesc" styleClass="OraDataText"/>
+                                 </ui:contents>
+                              </oa:defaultSingleColumn>
+                           </ui:contents>
+                        </oa:cellFormat>
+                        <oa:cellFormat id="region141">
+                           <ui:contents>
+                              <oa:spacer id="item11" width="5"/>
+                           </ui:contents>
+                        </oa:cellFormat>
+                        <oa:cellFormat id="region51" height="10">
+                           <ui:contents>
+                              <oa:defaultSingleColumn id="region11119" headerDisabled="true">
+                                 <ui:contents>
+                                    <oa:messageStyledText id="CategoryDesc1" dataType="VARCHAR2" prompt="Category Description" viewName="DocLibVO" viewAttr="CategoryDesc" vAlign="middle" styleClass="OraDataText"/>
+                                    <oa:messageTextInput id="EffectiveStartDate1" dataType="DATE" prompt="Effective Start Date" viewName="DocLibVO" viewAttr="EffectiveStartDate" tipType="dateFormat" required="yes"/>
+                                    <oa:messageTextInput id="EffectiveEndDate1" dataType="DATE" prompt="Effective End Date" viewName="DocLibVO" viewAttr="EffectiveEndDate"/>
+                                 </ui:contents>
+                              </oa:defaultSingleColumn>
+                           </ui:contents>
+                        </oa:cellFormat>
+                     </ui:contents>
+                  </oa:rowLayout>
+                  <oa:rowLayout id="region181">
+                     <ui:contents>
+                        <oa:cellFormat id="region271">
+                           <ui:contents>
+                              <oa:spacer id="item31" width="100"/>
+                           </ui:contents>
+                        </oa:cellFormat>
+                        <oa:cellFormat id="region251">
+                           <ui:contents>
+                              <oa:messageFileUpload id="DocumentFile1" dataType="BLOB" prompt="Document File" viewName="DocLibVO" viewAttr="DocumentFile"/>
+                              <oa:spacer id="item4111" height="20"/>
+                           </ui:contents>
+                        </oa:cellFormat>
+                     </ui:contents>
+                  </oa:rowLayout>
+               </ui:contents>
+            </oa:tableLayout>
+            <oa:tableLayout id="region301" hAlign="center">
+               <ui:contents>
+                  <oa:rowLayout id="region311">
+                     <ui:contents>
+                        <oa:cellFormat id="region321">
+                           <ui:contents>
+                              <oa:spacer id="item41" width="1000"/>
+                           </ui:contents>
+                        </oa:cellFormat>
+                        <oa:cellFormat id="region331">
+                           <ui:contents>
+                              <oa:pageButtonBar id="region291">
+                                 <ui:contents>
+                                    <oa:submitButton id="Save11" text="Save" prompt="Save" serverUnvalidated="true" unvalidated="true">
+                                       <ui:primaryClientAction>
+                                          <ui:firePartialAction event="Save" id="firePartialAction11"/>
+                                       </ui:primaryClientAction>
+                                    </oa:submitButton>
+                                    <oa:submitButton id="Clear11" text="Clear" prompt="Clear">
+                                       <ui:primaryClientAction>
+                                          <ui:fireAction event="ClearButton"/>
+                                       </ui:primaryClientAction>
+                                    </oa:submitButton>
+                                    <oa:submitButton id="Exit" text="Exit" prompt="Exit">
+                                       <ui:primaryClientAction>
+                                          <ui:fireAction event="linktoviewpg" id="fireAction1"/>
+                                       </ui:primaryClientAction>
+                                    </oa:submitButton>
+                                 </ui:contents>
+                              </oa:pageButtonBar>
+                              <oa:spacer id="item411" height="50"/>
+                           </ui:contents>
+                        </oa:cellFormat>
+                     </ui:contents>
+                  </oa:rowLayout>
+               </ui:contents>
+            </oa:tableLayout>
+            <oa:table id="xxMoissDocLibVO1" width="100%" rendered="${oa.PPRVO.UpdTableDispAttr}">
+               <ui:contents>
+                  <oa:messageStyledText id="DocumentName11" dataType="VARCHAR2" prompt="Document Name" viewName="DocLibVO1" viewAttr="DocumentName" maximumLength="60"/>
+                  <oa:messageStyledText id="OwningDeptDesc" dataType="VARCHAR2" prompt="Owning Dept" viewName="DocLibVO1" viewAttr="OwningDeptDesc" maximumLength="80"/>
+                  <oa:messageStyledText id="CategoryDesc" dataType="VARCHAR2" prompt="Category" viewName="DocLibVO1" viewAttr="CategoryDesc" maximumLength="80"/>
+                  <oa:messageStyledText id="DocumentNumber1" dataType="VARCHAR2" prompt="Document Number" viewName="DocLibVO1" viewAttr="DocumentNumber" maximumLength="60"/>
+                  <oa:messageStyledText id="VersionNumber" dataType="VARCHAR2" prompt="Version" viewName="DocLibVO1" viewAttr="VersionNumber" maximumLength="60"/>
+                  <oa:messageStyledText id="EffectiveStartDate11" dataType="DATE" prompt="Start Date" viewName="DocLibVO1" viewAttr="EffectiveStartDate"/>
+                  <oa:messageStyledText id="EffectiveEndDate11" dataType="DATE" prompt="End Date" viewName="DocLibVO1" viewAttr="EffectiveEndDate"/>
+                  <oa:messageStyledText id="DocumentFile" dataType="VARCHAR2" prompt="Open/View" viewName="DocLibVO1" viewAttr="DocumentFile"/>
+               </ui:contents>
+            </oa:table>
+         </ui:contents>
+      </oa:defaultSingleColumn>
+   </ui:contents>
+</oa:header>

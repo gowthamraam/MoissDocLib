@@ -1,0 +1,89 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oa:header version="10.1.3_1312" xml:lang="en-US" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <ui:contents>
+      <oa:defaultSingleColumn id="Stable2" headerDisabled="false" text="Search Your Documents">
+         <ui:contents>
+            <oa:tableLayout id="region2221" hAlign="center">
+               <ui:contents>
+                  <oa:rowLayout id="SecondRows11">
+                     <ui:contents>
+                        <oa:cellFormat id="region411" height="10">
+                           <ui:contents>
+                              <oa:defaultSingleColumn id="region111124" headerDisabled="true">
+                                 <ui:contents>
+                                    <oa:messageTextInput id="DocumentNumber" dataType="VARCHAR2" prompt="Document Number" maximumLength="60"/>
+                                    <oa:messageTextInput id="DocumentName" dataType="VARCHAR2" prompt="Document Name" maximumLength="150" rendered="true"/>
+                                    <oa:messageChoice id="Dept" dataType="VARCHAR2" prompt="Department" pickListViewName="deptVO" pickListDispAttr="Meaning" pickListValAttr="Meaning"/>
+                                 </ui:contents>
+                              </oa:defaultSingleColumn>
+                           </ui:contents>
+                        </oa:cellFormat>
+                        <oa:cellFormat id="region1411">
+                           <ui:contents>
+                              <oa:spacer id="item111" width="250"/>
+                           </ui:contents>
+                        </oa:cellFormat>
+                        <oa:cellFormat id="region511" height="10">
+                           <ui:contents>
+                              <oa:defaultSingleColumn id="region111191" headerDisabled="true">
+                                 <ui:contents>
+                                    <oa:messageChoice id="Category" dataType="VARCHAR2" prompt="Category" vAlign="middle" pickListViewName="categoryVO" pickListDispAttr="Meaning" pickListValAttr="Meaning"/>
+                                    <oa:messageTextInput id="EffectiveStartDate" dataType="DATE" prompt="Effective Start Date"/>
+                                    <oa:messageTextInput id="EffectiveEndDate" dataType="DATE" prompt="Effective End Date"/>
+                                 </ui:contents>
+                              </oa:defaultSingleColumn>
+                           </ui:contents>
+                        </oa:cellFormat>
+                     </ui:contents>
+                  </oa:rowLayout>
+               </ui:contents>
+            </oa:tableLayout>
+            <oa:tableLayout id="region30111" hAlign="center">
+               <ui:contents>
+                  <oa:rowLayout id="region31111">
+                     <ui:contents>
+                        <oa:cellFormat id="region32111">
+                           <ui:contents>
+                              <oa:spacer id="item411121" height="20"/>
+                           </ui:contents>
+                        </oa:cellFormat>
+                     </ui:contents>
+                  </oa:rowLayout>
+               </ui:contents>
+            </oa:tableLayout>
+            <oa:tableLayout id="region3011" hAlign="center">
+               <ui:contents>
+                  <oa:rowLayout id="region3111">
+                     <ui:contents>
+                        <oa:cellFormat id="region3211">
+                           <ui:contents>
+                              <oa:spacer id="item41112" height="50" width="800"/>
+                           </ui:contents>
+                        </oa:cellFormat>
+                        <oa:cellFormat id="region3311">
+                           <ui:contents>
+                              <oa:pageButtonBar id="region2911">
+                                 <ui:contents>
+                                    <oa:submitButton id="Find" text="Find" prompt="Find">
+                                       <ui:primaryClientAction>
+                                          <ui:firePartialAction event="Search" id="firePartialAction111"/>
+                                       </ui:primaryClientAction>
+                                    </oa:submitButton>
+                                    <oa:submitButton id="NewDoc" rendered="${oa.PPRVO.DispAdminAttr}" text="NewDoc" prompt="NewDoc">
+                                       <ui:primaryClientAction>
+                                          <ui:firePartialAction event="NewDoc" id="firePartialAction112"/>
+                                       </ui:primaryClientAction>
+                                    </oa:submitButton>
+                                 </ui:contents>
+                              </oa:pageButtonBar>
+                              <oa:spacer id="item41113" height="30"/>
+                           </ui:contents>
+                        </oa:cellFormat>
+                     </ui:contents>
+                  </oa:rowLayout>
+               </ui:contents>
+            </oa:tableLayout>
+         </ui:contents>
+      </oa:defaultSingleColumn>
+   </ui:contents>
+</oa:header>

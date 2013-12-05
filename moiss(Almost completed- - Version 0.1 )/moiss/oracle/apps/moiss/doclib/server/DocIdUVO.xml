@@ -1,0 +1,296 @@
+<?xml version='1.0' encoding='windows-1252' ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="DocIdUVO"
+   BindingStyle="OracleName"
+   CustomQuery="true"
+   RowClass="moiss.oracle.apps.moiss.doclib.server.DocIdUVORowImpl"
+   ComponentClass="moiss.oracle.apps.moiss.doclib.server.DocIdUVOImpl"
+   UseGlueCode="false" >
+   <SQLQuery><![CDATA[
+select rn, one.DOCUMENT_NUMBER, one.DOC_ID, one.Version_number, user_doc_id, USER_ID, READ_ACCEPT_FLAG, DOCUMENT_NAME, OWNING_DEPT_DESC
+, CATEGORY_DESC, EFFECTIVE_START_DATE, EFFECTIVE_END_DATE, Document_file, MUST_READ, CHECK_SWITCHER, CATEGORY, OWNING_DEPT
+
+  from (select rownum rn, one.*   from (
+                                                             
+ 
+ SELECT 
+           
+          mdv.DOCUMENT_NUMBER, mdv.DOC_ID, mdv.version_number
+           
+         
+      
+FROM      MOISS_DOC_LIBRARY_USER DocLibUserEO, moiss_doc_library_v mdv
+where     DocLibUserEO.DOC_ID(+)=mdv.DOC_ID    
+          and     (DocLibUserEO.USER_ID=:1 or DocLibUserEO.USER_ID is null)
+          AND    SYSDATE >= mdv.EFFECTIVE_START_DATE 
+          AND   SYSDATE <=NVL(mdv.EFFECTIVE_END_DATE, '31-DEC-9999') 
+        group by      mdv.DOCUMENT_NUMBER, mdv.DOC_ID , mdv.version_number 
+      order by version_number desc) one) one,
+      
+      
+ (SELECT 
+          DocLibUserEO.USER_DOC_ID,        
+          DocLibUserEO.USER_ID, 
+          DocLibUserEO.READ_ACCEPT_FLAG,
+          mdv.DOC_id,
+          mdv.DOCUMENT_NAME,
+          mdv.OWNING_DEPT_DESC,
+          mdv.CATEGORY_DESC,
+          mdv.DOCUMENT_NUMBER,
+          mdv.VERSION_NUMBER,
+          mdv.EFFECTIVE_START_DATE,
+          mdv.EFFECTIVE_END_DATE,
+          mdv.Document_file,
+          mdv.MUST_READ,
+          case 
+          when DocLibUserEO.READ_ACCEPT_FLAG='Y' or nvl(mdv.MUST_READ, 'N')='N' then 'CheckEnable'  
+          when nvl(DocLibUserEO.READ_ACCEPT_FLAG, 'N')='N' and mdv.MUST_READ ='Y' then   'CheckDisable'     
+          end CHECK_SWITCHER,
+          mdv.CATEGORY,
+          mdv.OWNING_DEPT
+FROM      MOISS_DOC_LIBRARY_USER DocLibUserEO, moiss_doc_library_v mdv
+where     DocLibUserEO.DOC_ID(+)=mdv.DOC_ID    
+          and     (DocLibUserEO.USER_ID=:1 or DocLibUserEO.USER_ID is null)
+          AND    SYSDATE >= mdv.EFFECTIVE_START_DATE 
+          AND   SYSDATE <=NVL(mdv.EFFECTIVE_END_DATE, '31-DEC-9999') )two
+          where one.doc_id=two.doc_id
+Order by one.rn
+   ]]></SQLQuery>
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_isExpertMode" Value="true" />
+      <Attr Name="_version" Value="10.1.3.41.57" />
+      <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess" />
+   </DesignTime>
+   <EntityUsage
+      Name="DocLibUserEO"
+      Entity="moiss.oracle.apps.moiss.doclib.schema.server.DocLibUserEO" >
+      <DesignTime>
+         <Attr Name="_queryClause" Value="false" />
+      </DesignTime>
+   </EntityUsage>
+   <ViewAttribute
+      Name="Rn"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="RN"
+      Expression="RN"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DocumentNumber"
+      IsPersistent="false"
+      Precision="60"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="DOCUMENT_NUMBER"
+      Expression="DOCUMENT_NUMBER"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="60" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DocId"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="DOC_ID"
+      Expression="DOC_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="VersionNumber"
+      IsPersistent="false"
+      Precision="60"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="VERSION_NUMBER"
+      Expression="VERSION_NUMBER"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="60" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="UserDocId"
+      EntityAttrName="UserDocId"
+      EntityUsage="DocLibUserEO"
+      AliasName="USER_DOC_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="UserId"
+      EntityAttrName="UserId"
+      EntityUsage="DocLibUserEO"
+      AliasName="USER_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ReadAcceptFlag"
+      EntityAttrName="ReadAcceptFlag"
+      EntityUsage="DocLibUserEO"
+      AliasName="READ_ACCEPT_FLAG" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DocumentName"
+      IsPersistent="false"
+      IsNotNull="true"
+      Precision="60"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="DOCUMENT_NAME"
+      Expression="DOCUMENT_NAME"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="60" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="OwningDeptDesc"
+      IsPersistent="false"
+      IsNotNull="true"
+      Precision="80"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="OWNING_DEPT_DESC"
+      Expression="OWNING_DEPT_DESC"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="80" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CategoryDesc"
+      IsPersistent="false"
+      IsNotNull="true"
+      Precision="80"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="CATEGORY_DESC"
+      Expression="CATEGORY_DESC"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="80" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="EffectiveStartDate"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      AliasName="EFFECTIVE_START_DATE"
+      Expression="EFFECTIVE_START_DATE"
+      SQLType="DATE" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="EffectiveEndDate"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      AliasName="EFFECTIVE_END_DATE"
+      Expression="EFFECTIVE_END_DATE"
+      SQLType="DATE" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DocumentFile"
+      IsQueriable="false"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.BlobDomain"
+      ColumnType="BLOB"
+      AliasName="DOCUMENT_FILE"
+      Expression="DOCUMENT_FILE"
+      SQLType="BLOB" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="MustRead"
+      IsPersistent="false"
+      Precision="240"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="MUST_READ"
+      Expression="MUST_READ"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="240" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CheckSwitcher"
+      IsPersistent="false"
+      Precision="12"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="CHECK_SWITCHER"
+      Expression="CHECK_SWITCHER"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="12" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Category"
+      IsPersistent="false"
+      Precision="30"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="CATEGORY"
+      Expression="CATEGORY"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="30" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="OwningDept"
+      IsPersistent="false"
+      Precision="30"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="OWNING_DEPT"
+      Expression="OWNING_DEPT"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="30" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DeleteSwitcher"
+      IsPersistent="false"
+      Precision="13"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="DELETE_SWITCHER"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="13" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="SelectFlag"
+      IsSelected="false"
+      IsPersistent="false"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="VIEW_ATTR"
+      SQLType="VARCHAR" >
+   </ViewAttribute>
+   <AttrArray Name="KeyAttributes">
+      <Item Value="UserDocId" />
+      <Item Value="DocumentFile" />
+   </AttrArray>
+</ViewObject>

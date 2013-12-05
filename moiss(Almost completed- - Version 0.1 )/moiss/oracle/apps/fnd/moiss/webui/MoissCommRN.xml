@@ -1,0 +1,148 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oa:header version="10.1.3_1312" xml:lang="en-US" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <ui:contents>
+      <oa:defaultSingleColumn id="Stable" headerDisabled="true">
+         <ui:contents>
+            <oa:tableLayout id="region222" hAlign="center">
+               <ui:contents>
+                  <oa:rowLayout id="FirstRow1">
+                     <ui:contents>
+                        <oa:cellFormat id="region261" height="10">
+                           <ui:contents>
+                              <oa:spacer id="item21" width="100"/>
+                           </ui:contents>
+                        </oa:cellFormat>
+                        <oa:cellFormat id="region241" height="10">
+                           <ui:contents>
+                              <oa:messageTextInput id="DocumentName1" dataType="VARCHAR2" prompt="DocumentName" viewName="DocLibVO" viewAttr="DocumentName" maximumLength="150" rendered="true" required="no"/>
+                           </ui:contents>
+                        </oa:cellFormat>
+                     </ui:contents>
+                  </oa:rowLayout>
+                  <oa:rowLayout id="spacingRegion1">
+                     <ui:contents>
+                        <oa:cellFormat id="region351" height="10">
+                           <ui:contents>
+                              <oa:spacer id="item51" height="10"/>
+                           </ui:contents>
+                        </oa:cellFormat>
+                     </ui:contents>
+                  </oa:rowLayout>
+                  <oa:rowLayout id="SecondRows1">
+                     <ui:contents>
+                        <oa:cellFormat id="region41" height="10">
+                           <ui:contents>
+                              <oa:defaultSingleColumn id="region111" headerDisabled="true">
+                                 <ui:contents>
+                                    <oa:defaultSingleColumn id="region111124" headerDisabled="true">
+                                       <ui:contents>
+                                          <oa:messageTextInput id="DocumentNumber" dataType="VARCHAR2" prompt="Document Number" maximumLength="60" viewName="DocLibVO" viewAttr="DocumentNumber" required="no" selectiveSearchCriteria="false" serverUnvalidated="true">
+                                             <ui:primaryClientAction>
+                                                <ui:fireAction event="docNoVal" unvalidated="true"/>
+                                             </ui:primaryClientAction>
+                                          </oa:messageTextInput>
+                                          <oa:messageTextInput id="VersionNumber" dataType="VARCHAR2" prompt="Version Number" maximumLength="60" rendered="true" viewName="DocLibVO" viewAttr="VersionNumber" selectiveSearchCriteria="false" serverUnvalidated="true">
+                                             <ui:primaryClientAction>
+                                                <ui:fireAction event="verNoVal" unvalidated="true"/>
+                                             </ui:primaryClientAction>
+                                          </oa:messageTextInput>
+                                          <oa:messageChoice id="Dept" dataType="VARCHAR2" prompt="Department" pickListViewName="deptVO" pickListDispAttr="Meaning" pickListValAttr="LookupCode" viewName="DocLibVO" viewAttr="OwningDept"/>
+                                          <oa:messageFileUpload id="DocumentFile1" dataType="BLOB" prompt="Document File" viewName="DocLibVO" viewAttr="DocumentFile"/>
+                                       </ui:contents>
+                                    </oa:defaultSingleColumn>
+                                 </ui:contents>
+                              </oa:defaultSingleColumn>
+                           </ui:contents>
+                        </oa:cellFormat>
+                        <oa:cellFormat id="region141">
+                           <ui:contents>
+                              <oa:spacer id="item11" width="5"/>
+                           </ui:contents>
+                        </oa:cellFormat>
+                        <oa:cellFormat id="region51" height="10">
+                           <ui:contents>
+                              <oa:defaultSingleColumn id="region11119" headerDisabled="true">
+                                 <ui:contents>
+                                    <oa:defaultSingleColumn id="region111191" headerDisabled="true">
+                                       <ui:contents>
+                                          <oa:messageChoice id="Category" dataType="VARCHAR2" prompt="Category" vAlign="middle" pickListViewName="categoryVO" pickListDispAttr="Meaning" pickListValAttr="LookupCode" viewName="DocLibVO" viewAttr="Category"/>
+                                          <oa:messageTextInput id="EffectiveStartDate1" dataType="DATE" prompt="Effective Start Date" viewName="DocLibVO" viewAttr="EffectiveStartDate" tipType="dateFormat" serverUnvalidated="true" required="no">
+                                             <ui:primaryClientAction>
+                                                <ui:firePartialAction event="esdate" unvalidated="true"/>
+                                             </ui:primaryClientAction>
+                                          </oa:messageTextInput>
+                                          <oa:messageTextInput id="EffectiveEndDate1" dataType="DATE" prompt="Effective End Date" viewName="DocLibVO" viewAttr="EffectiveEndDate" serverUnvalidated="true" showRequired="true">
+                                             <ui:primaryClientAction>
+                                                <ui:firePartialAction event="eedate" unvalidated="true"/>
+                                             </ui:primaryClientAction>
+                                          </oa:messageTextInput>
+                                          <oa:messageCheckBox id="CheckBox" checkedValue="Y" viewName="DocLibVO" viewAttr="MustRead" text="Is Must Read field" prompt="Is Must Read field" serverUnvalidated="true">
+                                             <ui:primaryClientAction>
+                                                <ui:fireAction event="mustread" unvalidated="true"/>
+                                             </ui:primaryClientAction>
+                                          </oa:messageCheckBox>
+                                       </ui:contents>
+                                    </oa:defaultSingleColumn>
+                                 </ui:contents>
+                              </oa:defaultSingleColumn>
+                           </ui:contents>
+                        </oa:cellFormat>
+                     </ui:contents>
+                  </oa:rowLayout>
+                  <oa:rowLayout id="region181">
+                     <ui:contents>
+                        <oa:cellFormat id="region271">
+                           <ui:contents>
+                              <oa:spacer id="item31" width="100"/>
+                           </ui:contents>
+                        </oa:cellFormat>
+                        <oa:cellFormat id="region251">
+                           <ui:contents>
+                              <oa:spacer id="item4111" height="20"/>
+                           </ui:contents>
+                        </oa:cellFormat>
+                     </ui:contents>
+                  </oa:rowLayout>
+               </ui:contents>
+            </oa:tableLayout>
+            <oa:tableLayout id="region301" hAlign="center">
+               <ui:contents>
+                  <oa:rowLayout id="region311">
+                     <ui:contents>
+                        <oa:cellFormat id="region321">
+                           <ui:contents>
+                              <oa:spacer id="item41" width="1000"/>
+                           </ui:contents>
+                        </oa:cellFormat>
+                        <oa:cellFormat id="region331">
+                           <ui:contents>
+                              <oa:pageButtonBar id="region291">
+                                 <ui:contents>
+                                    <oa:submitButton id="Save11" text="Save" prompt="Save" serverUnvalidated="true" unvalidated="true">
+                                       <ui:primaryClientAction>
+                                          <ui:firePartialAction event="Save" id="firePartialAction11"/>
+                                       </ui:primaryClientAction>
+                                    </oa:submitButton>
+                                    <oa:submitButton id="Clear11" text="Clear" prompt="Clear">
+                                       <ui:primaryClientAction>
+                                          <ui:firePartialAction event="ClearButton"/>
+                                       </ui:primaryClientAction>
+                                    </oa:submitButton>
+                                    <oa:submitButton id="Exit" text="Exit" prompt="Exit">
+                                       <ui:primaryClientAction>
+                                          <ui:fireAction event="linktoviewpg"/>
+                                       </ui:primaryClientAction>
+                                    </oa:submitButton>
+                                 </ui:contents>
+                              </oa:pageButtonBar>
+                              <oa:spacer id="item411" height="50"/>
+                           </ui:contents>
+                        </oa:cellFormat>
+                     </ui:contents>
+                  </oa:rowLayout>
+               </ui:contents>
+            </oa:tableLayout>
+         </ui:contents>
+      </oa:defaultSingleColumn>
+   </ui:contents>
+</oa:header>

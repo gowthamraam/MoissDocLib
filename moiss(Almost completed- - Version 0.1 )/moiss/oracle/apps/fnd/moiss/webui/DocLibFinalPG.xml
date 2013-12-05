@@ -1,0 +1,159 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="10.1.3_1312" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="PageLayout" controllerClass="moiss.oracle.apps.fnd.moiss.webui.DocLibCO" amDefName="moiss.oracle.apps.moiss.doclib.server.MoissAM" windowTitle="Welcome" title="Welcome">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/FNDSSCORP.gif"/>
+         </ui:corporateBranding>
+         <ui:contents>
+            <oa:defaultSingleColumn id="Stable2" headerDisabled="false" text="Search Your Documents">
+               <ui:contents>
+                  <oa:tableLayout id="region2221" hAlign="center">
+                     <ui:contents>
+                        <oa:rowLayout id="SecondRows11">
+                           <ui:contents>
+                              <oa:cellFormat id="region411" height="10">
+                                 <ui:contents>
+                                    <oa:defaultSingleColumn id="region111124" headerDisabled="true">
+                                       <ui:contents>
+                                          <oa:messageTextInput id="DocumentNumber" dataType="VARCHAR2" prompt="Document Number" maximumLength="60"/>
+                                          <oa:messageTextInput id="DocumentName" dataType="VARCHAR2" prompt="Document Name" maximumLength="150" rendered="true"/>
+                                          <oa:messageChoice id="Dept" dataType="VARCHAR2" prompt="Department" pickListViewName="deptVO" pickListDispAttr="Meaning" pickListValAttr="Meaning"/>
+                                       </ui:contents>
+                                    </oa:defaultSingleColumn>
+                                 </ui:contents>
+                              </oa:cellFormat>
+                              <oa:cellFormat id="region1411">
+                                 <ui:contents>
+                                    <oa:spacer id="item111" width="250"/>
+                                 </ui:contents>
+                              </oa:cellFormat>
+                              <oa:cellFormat id="region511" height="10">
+                                 <ui:contents>
+                                    <oa:defaultSingleColumn id="region111191" headerDisabled="true">
+                                       <ui:contents>
+                                          <oa:messageChoice id="Category" dataType="VARCHAR2" prompt="Category" vAlign="middle" pickListViewName="categoryVO" pickListDispAttr="Meaning" pickListValAttr="Meaning"/>
+                                          <oa:messageTextInput id="EffectiveStartDate" dataType="DATE" prompt="Effective Start Date"/>
+                                          <oa:messageTextInput id="EffectiveEndDate" dataType="DATE" prompt="Effective End Date"/>
+                                       </ui:contents>
+                                    </oa:defaultSingleColumn>
+                                 </ui:contents>
+                              </oa:cellFormat>
+                           </ui:contents>
+                        </oa:rowLayout>
+                     </ui:contents>
+                  </oa:tableLayout>
+                  <oa:tableLayout id="region30111" hAlign="center">
+                     <ui:contents>
+                        <oa:rowLayout id="region31111">
+                           <ui:contents>
+                              <oa:cellFormat id="region32111">
+                                 <ui:contents>
+                                    <oa:spacer id="item411121" height="20"/>
+                                 </ui:contents>
+                              </oa:cellFormat>
+                           </ui:contents>
+                        </oa:rowLayout>
+                     </ui:contents>
+                  </oa:tableLayout>
+                  <oa:tableLayout id="region3011" hAlign="center">
+                     <ui:contents>
+                        <oa:rowLayout id="region3111">
+                           <ui:contents>
+                              <oa:cellFormat id="region3211">
+                                 <ui:contents>
+                                    <oa:spacer id="item41112" height="50" width="800"/>
+                                 </ui:contents>
+                              </oa:cellFormat>
+                              <oa:cellFormat id="region3311">
+                                 <ui:contents>
+                                    <oa:pageButtonBar id="region2911">
+                                       <ui:contents>
+                                          <oa:submitButton id="Find" text="Find" prompt="Find">
+                                             <ui:primaryClientAction>
+                                                <ui:firePartialAction event="Search" id="firePartialAction111"/>
+                                             </ui:primaryClientAction>
+                                          </oa:submitButton>
+                                          <oa:submitButton id="NewDoc" rendered="${oa.PPRVO.DispAdminAttr}" text="NewDoc" prompt="NewDoc">
+                                             <ui:primaryClientAction>
+                                                <ui:firePartialAction event="NewDoc" id="firePartialAction112"/>
+                                             </ui:primaryClientAction>
+                                          </oa:submitButton>
+                                       </ui:contents>
+                                    </oa:pageButtonBar>
+                                    <oa:spacer id="item41113" height="30"/>
+                                 </ui:contents>
+                              </oa:cellFormat>
+                           </ui:contents>
+                        </oa:rowLayout>
+                     </ui:contents>
+                  </oa:tableLayout>
+               </ui:contents>
+            </oa:defaultSingleColumn>
+            <oa:table id="DocFreeze" width="100%" rendered="true" serverUnvalidated="true" unvalidated="true">
+               <ui:contents>
+                  <oa:messageStyledText id="DocumentName1" dataType="VARCHAR2" prompt="Document Name" viewName="DocIdUVO" viewAttr="DocumentName" maximumLength="150" required="no"/>
+                  <oa:messageStyledText id="OwningDeptDesc" dataType="VARCHAR2" prompt="Owning Dept" viewName="DocIdUVO" viewAttr="OwningDeptDesc" maximumLength="80"/>
+                  <oa:messageStyledText id="CategoryDesc" dataType="VARCHAR2" prompt="Category" viewName="DocIdUVO" viewAttr="CategoryDesc" maximumLength="80"/>
+                  <oa:messageStyledText id="DocumentNumber1" dataType="VARCHAR2" prompt="Document Number" viewName="DocIdUVO" viewAttr="DocumentNumber" maximumLength="60"/>
+                  <oa:messageStyledText id="VersionNumber" dataType="VARCHAR2" prompt="Version" viewName="DocIdUVO" viewAttr="VersionNumber" maximumLength="60"/>
+                  <oa:messageStyledText id="EffectiveStartDate1" dataType="DATE" prompt="Start Date" viewName="DocIdUVO" viewAttr="EffectiveStartDate"/>
+                  <oa:messageStyledText id="EffectiveEndDate1" dataType="DATE" prompt="End Date" viewName="DocIdUVO" viewAttr="EffectiveEndDate"/>
+                  <oa:image id="VerUpd1" rendered="${oa.PPRVO.DispAdminAttr}" use="/oracle/apps/fnd/attributesets/Buttons/Update" source="updateicon_popup_enabled" imageHeight="24" imageWidth="24" prompt="Version Update">
+                     <ui:primaryClientAction>
+                        <ui:fireAction id="fireAction11" event="VerUpd">
+                           <ui:parameters>
+                              <ui:parameter key="DocId" value="${oa.DocIdUVO.DocId}"/>
+                              <ui:parameter key="key" value="VERUPD"/>
+                           </ui:parameters>
+                        </ui:fireAction>
+                     </ui:primaryClientAction>
+                  </oa:image>
+                  <oa:messageDownload id="DocumentFile" dataType="BLOB" prompt="Open/View" viewName="DocIdUVO" viewAttr="DocumentName" contentViewAttributeName="testfile"/>
+                  <oa:image id="UpdatePG" rendered="${oa.PPRVO.DispAdminAttr}" use="/oracle/apps/fnd/attributesets/Buttons/Update" source="updateicon_enabled.gif" imageHeight="24" imageWidth="24">
+                     <ui:primaryClientAction>
+                        <ui:fireAction id="fireAction12">
+                           <ui:parameters>
+                              <ui:parameter key="DocId" value="${oa.DocIdUVO.DocId}"/>
+                              <ui:parameter key="key" value="UPDATE"/>
+                           </ui:parameters>
+                        </ui:fireAction>
+                     </ui:primaryClientAction>
+                  </oa:image>
+                  <oa:switcher id="CheckSwitcher" viewName="DocIdUVO" use="/oracle/apps/fnd/attributesets/Buttons/Delete" viewAttr="CheckSwitcher" prompt="Read/Accept">
+                     <ui:case name="CheckEnable">
+                        <oa:image id="CheckEnable" source="sysselected_status.gif" shortDesc="Delete employee action is disabled.">
+                           <ui:primaryClientAction>
+                              <ui:fireAction event="delete" id="fireAction13"/>
+                           </ui:primaryClientAction>
+                        </oa:image>
+                     </ui:case>
+                     <ui:case name="CheckDisable">
+                        <oa:messageCheckBox id="CheckDisable" viewAttr="SelectFlag" text="" prompt="" defaultValue="" checkedValue="Y" unCheckedValue="" viewName="DocIdUVO">
+                           <ui:primaryClientAction>
+                              <ui:fireAction event="Boad" id="fireAction4"/>
+                           </ui:primaryClientAction>
+                        </oa:messageCheckBox>
+                     </ui:case>
+                  </oa:switcher>
+                  <oa:image id="delete" destination="" source="deleteicon_enabled.gif" shortDesc="Delete employee action is enabled." prompt="Delete">
+                     <ui:primaryClientAction>
+                        <ui:fireAction event="delete" id="fireAction3">
+                           <ui:parameters>
+                              <ui:parameter key="DocumentNumber" value="${oa.DocLibVO.DocumentNumber}"/>
+                              <ui:parameter key="VersionNumber" value="${oa.DocLibVO.VersionNumber}"/>
+                           </ui:parameters>
+                        </ui:fireAction>
+                     </ui:primaryClientAction>
+                  </oa:image>
+                  <oa:image id="Doc" viewName="DocIdUVO" viewAttr="DocumentNumber">
+                     <ui:primaryClientAction>
+                        <ui:fireAction event="docView" id="fireAction14"/>
+                     </ui:primaryClientAction>
+                  </oa:image>
+               </ui:contents>
+            </oa:table>
+         </ui:contents>
+      </oa:pageLayout>
+   </content>
+</page>

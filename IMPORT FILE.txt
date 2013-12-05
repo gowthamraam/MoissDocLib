@@ -1,0 +1,111 @@
+CMD
+===================================
+C:\Jdeveloper\jdevbin\oaext\bin
+
+import C:\Jdeveloper\jdevbin\jdev\myclasses\xxcactbank\oracle\apps\fnd\xxcactesbank\webui\xxCactBankLoginPG.xml -rootdir C:\Jdeveloper\jdevbin\jdev\myclasses\ -username apps -password apps -dbconnection "(description = (address_list = (address = (community =tcp.world)(protocol = tcp)(host =172.16.1.250)(port = 1524)))(connect_data = (sid = VISTEST)))"
+import C:\Jdeveloper\jdevbin\jdev\myclasses\xxcactbank\oracle\apps\fnd\xxcactesbank\webui\xxCactBankDetailsPG.xml -rootdir C:\Jdeveloper\jdevbin\jdev\myclasses\ -username apps -password apps -dbconnection "(description = (address_list = (address = (community =tcp.world)(protocol = tcp)(host =172.16.1.250)(port = 1524)))(connect_data = (sid = VISTEST)))"
+import C:\Jdeveloper\jdevbin\jdev\myclasses\xxcactbank\oracle\apps\fnd\xxcactesbank\webui\xxCactBankCustDetPG.xml -rootdir C:\Jdeveloper\jdevbin\jdev\myclasses\ -username apps -password apps -dbconnection "(description = (address_list = (address = (community =tcp.world)(protocol = tcp)(host =172.16.1.250)(port = 1524)))(connect_data = (sid = VISTEST)))"
+import C:\Jdeveloper\jdevbin\jdev\myclasses\xxcactbank\oracle\apps\fnd\xxcactesbank\webui\xxcactBankAdminPG.xml -rootdir C:\Jdeveloper\jdevbin\jdev\myclasses\ -username apps -password apps -dbconnection "(description = (address_list = (address = (community =tcp.world)(protocol = tcp)(host =172.16.1.250)(port = 1524)))(connect_data = (sid = VISTEST)))"
+import C:\Jdeveloper\jdevbin\jdev\myclasses\xxcactbank\oracle\apps\fnd\xxcactesbank\lov\webui\xxCactBankCountriesRN.xml -rootdir C:\Jdeveloper\jdevbin\jdev\myclasses\ -username apps -password apps -dbconnection "(description = (address_list = (address = (community =tcp.world)(protocol = tcp)(host =172.16.1.250)(port = 1524)))(connect_data = (sid = VISTEST)))"
+import C:\Jdeveloper\jdevbin\jdev\myclasses\xxcactbank\oracle\apps\fnd\xxcactesbank\lov\webui\xxCactBankStatesRN.xml -rootdir C:\Jdeveloper\jdevbin\jdev\myclasses\ -username apps -password apps -dbconnection "(description = (address_list = (address = (community =tcp.world)(protocol = tcp)(host =172.16.1.250)(port = 1524)))(connect_data = (sid = VISTEST)))"
+
+/xxcactbank/oracle/apps/fnd/xxcactesbank/webui/xxCactBankLoginPG
+OA.jsp?page=/xxcactbank/oracle/apps/fnd/xxcactesbank/webui/xxCactBankLoginPG&akRegionApplicationId=0&OAHP=OA_TEST_INSTALL_APPLICATION&OASF=OA_TEST_INSTALL_LKP_TYPE
+
+OA.jsp?page=/moiss/oracle/apps/fnd/moiss/webui/DocLibPG&akRegionApplicationId=0&OAHP=OA_TEST_INSTALL_APPLICATION&OASF=OA_TEST_INSTALL_LKP_TYPE
+
+*********************BULK******************************* 
+import C:\Jdeveloper\jdevbin\jdev\myclasses\xxfinalcactbank\oracle\apps\fnd\cactbank\webui\xxCactBankLoginPG.xml -rootdir C:\Jdeveloper\jdevbin\jdev\myclasses\ -username apps -password apps -dbconnection "(description = (address_list = (address = (community =tcp.world)(protocol = tcp)(host =172.16.1.250)(port = 1524)))(connect_data = (sid = VISTEST)))" && import C:\Jdeveloper\jdevbin\jdev\myclasses\xxfinalcactbank\oracle\apps\fnd\cactbank\webui\xxCactBankDetailsPG.xml -rootdir C:\Jdeveloper\jdevbin\jdev\myclasses\ -username apps -password apps -dbconnection "(description = (address_list = (address = (community =tcp.world)(protocol = tcp)(host =172.16.1.250)(port = 1524)))(connect_data = (sid = VISTEST)))" && import C:\Jdeveloper\jdevbin\jdev\myclasses\xxfinalcactbank\oracle\apps\fnd\cactbank\webui\xxCactBankCustDetPG.xml -rootdir C:\Jdeveloper\jdevbin\jdev\myclasses\ -username apps -password apps -dbconnection "(description = (address_list = (address = (community =tcp.world)(protocol = tcp)(host =172.16.1.250)(port = 1524)))(connect_data = (sid = VISTEST)))" && import C:\Jdeveloper\jdevbin\jdev\myclasses\xxfinalcactbank\oracle\apps\fnd\cactbank\webui\xxcactBankAdminPG.xml -rootdir C:\Jdeveloper\jdevbin\jdev\myclasses\ -username apps -password apps -dbconnection "(description = (address_list = (address = (community =tcp.world)(protocol = tcp)(host =172.16.1.250)(port = 1524)))(connect_data = (sid = VISTEST)))" && import C:\Jdeveloper\jdevbin\jdev\myclasses\xxfinalcactbank\oracle\apps\fnd\cactbank\lov\webui\xxCactBankCountriesRN.xml -rootdir C:\Jdeveloper\jdevbin\jdev\myclasses\ -username apps -password apps -dbconnection "(description = (address_list = (address = (community =tcp.world)(protocol = tcp)(host =172.16.1.250)(port = 1524)))(connect_data = (sid = VISTEST)))" && import C:\Jdeveloper\jdevbin\jdev\myclasses\xxfinalcactbank\oracle\apps\fnd\cactbank\lov\webui\xxCactBankStatesRN.xml -rootdir C:\Jdeveloper\jdevbin\jdev\myclasses\ -username apps -password apps -dbconnection "(description = (address_list = (address = (community =tcp.world)(protocol = tcp)(host =172.16.1.250)(port = 1524)))(connect_data = (sid = VISTEST)))"
+
+====================================================================================
+Putty Import --Host --Username--Password
+
+cd $JAVA_TOP
+
+pwd     // To Print The Directory
+
+ls        // To List Out All The Folders
+
+cd ..   // To go back
+
+C:\Jdeveloper\jdevbin\jdev\myclasses\xxfinalcactbank\oracle\apps\fnd\cactbank\webui\xxCactBankLoginPG.xml
+                                                                 /xxfinalcactbank/oracle/apps/fnd/cactbank/webui/xxCactBankLoginPG.xml
+
+java oracle.jrad.tools.xml.importer.XMLImporter $JAVA_TOP/moiss/oracle/apps/fnd/moiss/webui/DocLibCrtPG.xml -jdk13 -mmddir $OA_HTML/jrad -username apps -password apps -rootdir $JAVA_TOP/moiss/oracle/apps/fnd -rootPackage /moiss/oracle/apps/fnd -validate -dbconnection "(DESCRIPTION=(ADDRESS_LIST=(LOAD_BALANCE=YES)(FAILOVER=YES)(ADDRESS=(PROTOCOL=tcp)(HOST=172.16.1.55)(PORT=1524)))(CONNECT_DATA=(SID=VISTEST)))"
+
+
+java oracle.jrad.tools.xml.importer.XMLImporter $JAVA_TOP/moiss/oracle/apps/fnd/moiss/webui/DocLibUpdPG.xml -jdk13 -mmddir $OA_HTML/jrad -username apps -password apps -rootdir $JAVA_TOP/moiss/oracle/apps/fnd -rootPackage /moiss/oracle/apps/fnd -validate -dbconnection "(DESCRIPTION=(ADDRESS_LIST=(LOAD_BALANCE=YES)(FAILOVER=YES)(ADDRESS=(PROTOCOL=tcp)(HOST=172.16.1.55)(PORT=1524)))(CONNECT_DATA=(SID=VISTEST)))"
+
+
+
+java oracle.jrad.tools.xml.importer.XMLImporter $JAVA_TOP/moiss/oracle/apps/fnd/moiss/webui/DocLibPG.xml -jdk13 -mmddir $OA_HTML/jrad -username apps -password apps -rootdir $JAVA_TOP/moiss/oracle/apps/fnd -rootPackage /moiss/oracle/apps/fnd -validate -dbconnection "(DESCRIPTION=(ADDRESS_LIST=(LOAD_BALANCE=YES)(FAILOVER=YES)(ADDRESS=(PROTOCOL=tcp)(HOST=172.16.1.55)(PORT=1524)))(CONNECT_DATA=(SID=VISTEST)))"
+
+
+
+
+
+java oracle.jrad.tools.xml.importer.XMLImporter $JAVA_TOP/moiss/oracle/apps/fnd/moiss/webui/MoissCommRN.xml -jdk13 -mmddir $OA_HTML/jrad -username apps -password apps -rootdir $JAVA_TOP/moiss/oracle/apps/fnd -rootPackage /moiss/oracle/apps/fnd -validate -dbconnection "(DESCRIPTION=(ADDRESS_LIST=(LOAD_BALANCE=YES)(FAILOVER=YES)(ADDRESS=(PROTOCOL=tcp)(HOST=172.16.1.55)(PORT=1524)))(CONNECT_DATA=(SID=VISTEST)))"
+
+
+
+
+
+java oracle.jrad.tools.xml.importer.XMLImporter $JAVA_TOP/moiss/oracle/apps/fnd/moiss/webui/SearchPGRN.xml -jdk13 -mmddir $OA_HTML/jrad -username apps -password apps -rootdir $JAVA_TOP/moiss/oracle/apps/fnd -rootPackage /moiss/oracle/apps/fnd -validate -dbconnection "(DESCRIPTION=(ADDRESS_LIST=(LOAD_BALANCE=YES)(FAILOVER=YES)(ADDRESS=(PROTOCOL=tcp)(HOST=172.16.1.55)(PORT=1524)))(CONNECT_DATA=(SID=VISTEST)))"
+
+
+
+
+java oracle.jrad.tools.xml.importer.XMLImporter $JAVA_TOP/moiss/oracle/apps/fnd/moiss/webui/UpdPGRN.xml -jdk13 -mmddir $OA_HTML/jrad -username apps -password apps -rootdir $JAVA_TOP/moiss/oracle/apps/fnd -rootPackage /moiss/oracle/apps/fnd -validate -dbconnection "(DESCRIPTION=(ADDRESS_LIST=(LOAD_BALANCE=YES)(FAILOVER=YES)(ADDRESS=(PROTOCOL=tcp)(HOST=172.16.1.55)(PORT=1524)))(CONNECT_DATA=(SID=VISTEST)))"
+
+
+
+
+After Import
+
+"/moiss/oracle/apps/fnd/moiss/webui/UpdPGRN"
+
+
+
+Importing file "/ebiz/ebs/applmgr/apps/apps_st/comn/java/classes/moiss/oracle/apps/fnd/moiss/webui/DocLibCrtPG.xml" as "/moiss/oracle/apps/fnd/moiss/webui/DocLibCrtPG".
+
+
+
+
+
+====================================================================================
+Register Details
+
+FUNCTION NAME  : MOISS_DOC_LIB
+
+
+
+
+
+
+
+====================
+Bounce
+
+1) login to your instance with putty or any other software
+2) cd $ADMIN_SCRIPTS_HOME
+3) adapcctl.sh stop
+4) adoacorectl.sh stop
+5) adapcctl.sh start
+6) adoacorectl.sh start
+
+===========================
+
+DECLARE
+BEGIN
+jdr_utils.ListDocuments('/xxfinalcactbank/oracle/apps/fnd/cactbank',TRUE);
+END;
+
+BEGIN
+jdr_utils.PrintDocument('/xxcactbank/oracle/apps/fnd/xxcactesbank/webui/xxCactBankLoginPG',1000);
+END;
+
+Deleting the documents
+---------------------------------------
+BEGIN
+jdr_utils.deletedocument(p_document => '/oracle/apps/per/irc/candidateSelfService/server/customizations/site/0/VisitorAM');
+END;

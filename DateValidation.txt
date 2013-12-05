@@ -1,0 +1,8 @@
+Date ddate = (Date)am.findViewObject("xxCactBankCreateVO").first().getAttribute("Dob");
+Date adate = (Date)am.findViewObject("xxCactBankCreateVO").first().getAttribute("ApplDate");
+long applDate = adate.dateValue().getTime();
+long dobDate = ddate.dateValue().getTime();
+
+if ()
+
+if ( dobDate >= applDate )

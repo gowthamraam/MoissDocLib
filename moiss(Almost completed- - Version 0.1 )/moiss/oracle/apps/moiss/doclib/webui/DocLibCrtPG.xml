@@ -1,0 +1,85 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="10.1.3_1312" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="region1" amDefName="moiss.oracle.apps.fnd.moiss.server.MoissAM" windowTitle="Create Page" title="Create Page">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/FNDSSCORP.gif"/>
+         </ui:corporateBranding>
+         <ui:contents>
+            <oa:defaultSingleColumn id="region22">
+               <ui:contents>
+                  <oa:tableLayout id="region2" hAlign="center">
+                     <ui:contents>
+                        <oa:rowLayout id="region3">
+                           <ui:contents>
+                              <oa:cellFormat id="region4">
+                                 <ui:contents>
+                                    <oa:messageComponentLayout id="region11">
+                                       <ui:contents>
+                                          <oa:messageTextInput id="DocumentName" dataType="VARCHAR2" prompt="DocumentName" viewName="MoissDocLibVO" viewAttr="DocumentName" maximumLength="60"/>
+                                          <oa:messageTextInput id="DocumentNumber" dataType="VARCHAR2" prompt="DocumentNumber" viewName="MoissDocLibVO" viewAttr="DocumentNumber" maximumLength="60"/>
+                                          <oa:messageFileUpload id="DocumentFile" dataType="CLOB" prompt="DocumentFile" viewName="MoissDocLibVO" viewAttr="DocumentFile"/>
+                                       </ui:contents>
+                                    </oa:messageComponentLayout>
+                                 </ui:contents>
+                              </oa:cellFormat>
+                              <oa:cellFormat id="region14">
+                                 <ui:contents>
+                                    <oa:spacer id="item1" width="50"/>
+                                 </ui:contents>
+                              </oa:cellFormat>
+                              <oa:cellFormat id="region5">
+                                 <ui:contents>
+                                    <oa:messageComponentLayout id="region12">
+                                       <ui:contents>
+                                          <oa:messageTextInput id="VersionNumber" dataType="VARCHAR2" prompt="VersionNumber" viewName="MoissDocLibVO" viewAttr="VersionNumber" maximumLength="60"/>
+                                          <oa:messageChoice id="OwningDeptDesc" dataType="VARCHAR2" prompt="OwningDeptDesc" viewName="MoissDocLibVO" viewAttr="OwningDeptDesc" pickListViewName="categoryVO" pickListValAttr="LOOKUP_CODE" pickListDispAttr="MEANING"/>
+                                          <oa:messageChoice id="CategoryDesc" dataType="VARCHAR2" prompt="CategoryDesc" viewName="MoissDocLibVO" viewAttr="CategoryDesc"/>
+                                       </ui:contents>
+                                    </oa:messageComponentLayout>
+                                 </ui:contents>
+                              </oa:cellFormat>
+                              <oa:cellFormat id="region15">
+                                 <ui:contents>
+                                    <oa:spacer id="item2" width="50"/>
+                                 </ui:contents>
+                              </oa:cellFormat>
+                              <oa:cellFormat id="region6">
+                                 <ui:contents>
+                                    <oa:messageComponentLayout id="region13">
+                                       <ui:contents>
+                                          <oa:messageTextInput id="EffectiveEndDate" dataType="DATE" prompt="EffectiveEndDate" viewName="MoissDocLibVO" viewAttr="EffectiveEndDate"/>
+                                          <oa:messageTextInput id="EffectiveStartDate" dataType="DATE" prompt="EffectiveStartDate" viewName="MoissDocLibVO" viewAttr="EffectiveStartDate"/>
+                                       </ui:contents>
+                                    </oa:messageComponentLayout>
+                                 </ui:contents>
+                              </oa:cellFormat>
+                           </ui:contents>
+                        </oa:rowLayout>
+                        <oa:rowLayout id="region18"/>
+                        <oa:rowLayout id="region19">
+                           <ui:contents>
+                              <oa:cellFormat id="region20">
+                                 <ui:contents>
+                                    <oa:pageButtonBar id="region21">
+                                       <ui:contents>
+                                          <oa:submitButton id="Save1" text="Save" prompt="Save">
+                                             <ui:primaryClientAction>
+                                                <ui:firePartialAction event="insert" id="firePartialAction1"/>
+                                             </ui:primaryClientAction>
+                                          </oa:submitButton>
+                                          <oa:resetButton id="ClearButton" text="Clear"/>
+                                       </ui:contents>
+                                    </oa:pageButtonBar>
+                                 </ui:contents>
+                              </oa:cellFormat>
+                           </ui:contents>
+                        </oa:rowLayout>
+                     </ui:contents>
+                  </oa:tableLayout>
+               </ui:contents>
+            </oa:defaultSingleColumn>
+         </ui:contents>
+      </oa:pageLayout>
+   </content>
+</page>
