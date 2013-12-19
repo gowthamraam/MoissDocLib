@@ -1,0 +1,27 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig>
+   <AppModuleConfigBag>
+      <AppModuleConfig name="MoissPunchAMLocal">
+         <DeployPlatform>LOCAL</DeployPlatform>
+         <JDBCName>VISTEST</JDBCName>
+         <jbo.project>MoissPunMac</jbo.project>
+         <AppModuleJndiName>moiss.oracle.apps.fnd.moiss.server.MoissPunchAM</AppModuleJndiName>
+         <java.naming.factory.initial>oracle.jbo.common.JboInitialContextFactory</java.naming.factory.initial>
+         <ApplicationName>moiss.oracle.apps.fnd.moiss.server.MoissPunchAM</ApplicationName>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <ConnectionDefinition name="VISTEST">
+      <ENTRY name="JDBC_PORT" value="1524"/>
+      <ENTRY name="ConnectionType" value="JDBC"/>
+      <ENTRY name="HOSTNAME" value="172.16.1.55"/>
+      <ENTRY name="user" value="apps"/>
+      <ENTRY name="ConnectionName" value="VISTEST"/>
+      <ENTRY name="SID" value="VISTEST"/>
+      <ENTRY name="JdbcDriver" value="oracle.jdbc.OracleDriver"/>
+      <ENTRY name="password">
+         <![CDATA[{904}0556DEBCD41F0A4080ADFB2BF5B9F9248E]]>
+      </ENTRY>
+      <ENTRY name="ORACLE_JDBC_TYPE" value="thin"/>
+      <ENTRY name="DeployPassword" value="true"/>
+   </ConnectionDefinition>
+</BC4JConfig>

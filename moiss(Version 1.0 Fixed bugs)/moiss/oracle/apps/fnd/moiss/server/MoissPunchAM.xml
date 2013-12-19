@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='windows-1252' ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+
+<AppModule
+   Name="MoissPunchAM"
+   ComponentClass="moiss.oracle.apps.fnd.moiss.server.MoissPunchAMImpl" >
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_version" Value="10.1.3.41.57" />
+      <Attr Name="_deployType" Value="0" />
+   </DesignTime>
+   <ViewUsage
+      Name="MoissCIOVO"
+      ViewObjectName="moiss.oracle.apps.fnd.moiss.server.MoissCIOVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="MoissPInfoVO"
+      ViewObjectName="moiss.oracle.apps.fnd.moiss.server.MoissPInfoVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="MoissPInfoVO2"
+      ViewObjectName="moiss.oracle.apps.fnd.moiss.server.MoissPInfoVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="MoissPInfoVO1"
+      ViewObjectName="moiss.oracle.apps.fnd.moiss.server.MoissPInfoVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="MoissPInfoVO3"
+      ViewObjectName="moiss.oracle.apps.fnd.moiss.server.MoissPInfoVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="MoissPInfoVO4"
+      ViewObjectName="moiss.oracle.apps.fnd.moiss.server.MoissPInfoVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="MoissPInfoVO5"
+      ViewObjectName="moiss.oracle.apps.fnd.moiss.server.MoissPInfoVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="MoissPInfoVO6"
+      ViewObjectName="moiss.oracle.apps.fnd.moiss.server.MoissPInfoVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="MoissPInfoVO7"
+      ViewObjectName="moiss.oracle.apps.fnd.moiss.server.MoissPInfoVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="MoissPInfoVO8"
+      ViewObjectName="moiss.oracle.apps.fnd.moiss.server.MoissPInfoVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="popPunchLOVVO"
+      ViewObjectName="moiss.oracle.apps.fnd.moiss.lov.server.popPunchLOVVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="MoissPIVO"
+      ViewObjectName="moiss.oracle.apps.fnd.moiss.server.MoissPIVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="MoissTempVO"
+      ViewObjectName="moiss.oracle.apps.fnd.moiss.server.MoissTempVO" >
+   </ViewUsage>
+</AppModule>

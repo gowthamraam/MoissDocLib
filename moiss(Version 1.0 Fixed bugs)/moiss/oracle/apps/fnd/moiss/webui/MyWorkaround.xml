@@ -1,0 +1,23 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="10.1.3_1312" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="region1" amDefName="moiss.oracle.apps.moiss.doclib.server.MoissAM" windowTitle="My file upload" title="My file upload" controllerClass="moiss.oracle.apps.fnd.moiss.webui.webui.TestCtlr">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/FNDSSCORP.gif"/>
+         </ui:corporateBranding>
+         <ui:contents>
+            <oa:header id="region2">
+               <ui:contents>
+                  <oa:messageFileUpload id="item1" viewName="MytestingView" viewAttr="Filee" prompt="Intended for testing" dataType="BLOB"/>
+                  <oa:table id="region3"/>
+                  <oa:submitButton id="item3" text="Go" prompt="Go">
+                     <ui:primaryClientAction>
+                        <ui:fireAction event="create"/>
+                     </ui:primaryClientAction>
+                  </oa:submitButton>
+               </ui:contents>
+            </oa:header>
+         </ui:contents>
+      </oa:pageLayout>
+   </content>
+</page>

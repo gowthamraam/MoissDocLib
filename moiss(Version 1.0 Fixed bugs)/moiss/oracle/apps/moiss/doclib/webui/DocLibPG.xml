@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="10.1.3_1312" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="PageLayout" amDefName="moiss.oracle.apps.fnd.moiss.server.MoissAM" windowTitle="Moiss Doc Lib" title="Welcome">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/FNDSSCORP.gif"/>
+         </ui:corporateBranding>
+         <ui:contents>
+            <oa:tableLayout id="region3" hAlign="center">
+               <ui:contents>
+                  <oa:rowLayout id="region4">
+                     <ui:contents>
+                        <oa:cellFormat id="region5">
+                           <ui:contents>
+                              <oa:defaultSingleColumn id="xxMoissDocLibVO" headerDisabled="true">
+                                 <ui:contents>
+                                    <oa:messageTextInput id="DocumentNumber" dataType="VARCHAR2" prompt="Document Number" viewName="MoissDocLibVO" viewAttr="DocumentNumber" maximumLength="60"/>
+                                    <oa:messageChoice id="OwningDept" dataType="VARCHAR2" prompt="OwningDept" viewName="MoissDocLibVO" viewAttr="OwningDept"/>
+                                    <oa:messageChoice id="Category" dataType="VARCHAR2" prompt="Category" viewName="MoissDocLibVO" viewAttr="Category"/>
+                                    <oa:messageTextInput id="EffectiveStartDate" dataType="DATE" prompt="EffectiveStartDate" viewName="MoissDocLibVO" viewAttr="EffectiveStartDate" tipType="dateFormat"/>
+                                    <oa:messageTextInput id="EffectiveEndDate" dataType="DATE" prompt="EffectiveEndDate" viewName="MoissDocLibVO" viewAttr="EffectiveEndDate" tipType="dateFormat"/>
+                                 </ui:contents>
+                              </oa:defaultSingleColumn>
+                           </ui:contents>
+                        </oa:cellFormat>
+                        <oa:cellFormat id="region8">
+                           <ui:contents>
+                              <oa:spacer id="item1" width="200"/>
+                           </ui:contents>
+                        </oa:cellFormat>
+                        <oa:cellFormat id="region6">
+                           <ui:contents>
+                              <oa:defaultSingleColumn id="region7" headerDisabled="true">
+                                 <ui:contents>
+                                    <oa:messageTextInput id="DocumentName" dataType="VARCHAR2" prompt="Document Name" viewName="MoissDocLibVO" viewAttr="DocumentName" maximumLength="60" tipType="none"/>
+                                    <oa:spacer id="item3" height="30"/>
+                                    <oa:submitButton id="Find" text="Find" prompt="Find"/>
+                                    <oa:spacer id="item2" height="30"/>
+                                    <oa:submitButton id="NewDoc" prompt="New Doc"/>
+                                 </ui:contents>
+                              </oa:defaultSingleColumn>
+                           </ui:contents>
+                        </oa:cellFormat>
+                     </ui:contents>
+                  </oa:rowLayout>
+               </ui:contents>
+            </oa:tableLayout>
+            <oa:tableLayout id="region11" hAlign="center">
+               <ui:contents>
+                  <oa:rowLayout id="region9">
+                     <ui:contents>
+                        <oa:cellFormat id="region10"/>
+                     </ui:contents>
+                  </oa:rowLayout>
+               </ui:contents>
+            </oa:tableLayout>
+            <oa:table id="xxMoissDocLibVO1" width="100%">
+               <ui:contents>
+                  <oa:messageStyledText id="DocumentName1" dataType="VARCHAR2" prompt="Document Name" viewName="MoissDocLibVO" viewAttr="DocumentName" maximumLength="60"/>
+                  <oa:messageStyledText id="OwningDeptDesc" dataType="VARCHAR2" prompt="Owning Dept" viewName="MoissDocLibVO" viewAttr="OwningDeptDesc" maximumLength="80"/>
+                  <oa:messageStyledText id="CategoryDesc" dataType="VARCHAR2" prompt="Category" viewName="MoissDocLibVO" viewAttr="CategoryDesc" maximumLength="80"/>
+                  <oa:messageStyledText id="DocumentNumber1" dataType="VARCHAR2" prompt="Document Number" viewName="MoissDocLibVO" viewAttr="DocumentNumber" maximumLength="60"/>
+                  <oa:messageStyledText id="VersionNumber" dataType="VARCHAR2" prompt="Version" viewName="MoissDocLibVO" viewAttr="VersionNumber" maximumLength="60"/>
+                  <oa:messageStyledText id="EffectiveStartDate1" dataType="DATE" prompt="Start Date" viewName="MoissDocLibVO" viewAttr="EffectiveStartDate"/>
+                  <oa:messageStyledText id="EffectiveEndDate1" dataType="DATE" prompt="End Date" viewName="MoissDocLibVO" viewAttr="EffectiveEndDate"/>
+                  <oa:messageStyledText id="DocumentFile" dataType="VARCHAR2" prompt="Open/View" viewName="MoissDocLibVO" viewAttr="DocumentFile"/>
+                  <oa:image id="item4" prompt="Version Update"/>
+                  <oa:image id="item5"/>
+                  <oa:messageCheckBox id="item6" checkedValue="Y" unCheckedValue="N" defaultValue="N" viewName="MoissDocLibUserVO" viewAttr="ReadAcceptFlag" text="Read / Accept" prompt="Read / Accept"/>
+               </ui:contents>
+            </oa:table>
+         </ui:contents>
+      </oa:pageLayout>
+   </content>
+</page>

@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='windows-1252' ?>
+<!DOCTYPE JboPackage SYSTEM "jbo_03_01.dtd">
+
+<JboPackage
+   Name="server"
+   SeparateXMLFiles="true"
+   PackageName="moiss.oracle.apps.moiss.doclib.server" >
+   <DesignTime>
+      <Attr Name="_ejbPackage" Value="false" />
+      <Attr Name="_version" Value="10.1.3.41.57" />
+   </DesignTime>
+   <Containee
+      Name="DocIdUVO"
+      FullName="moiss.oracle.apps.moiss.doclib.server.DocIdUVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="DocLibUserVO"
+      FullName="moiss.oracle.apps.moiss.doclib.server.DocLibUserVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="DocLibVO"
+      FullName="moiss.oracle.apps.moiss.doclib.server.DocLibVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="MoissAM"
+      FullName="moiss.oracle.apps.moiss.doclib.server.MoissAM"
+      ObjectType="AppModule" >
+   </Containee>
+   <Containee
+      Name="MytestingView"
+      FullName="moiss.oracle.apps.moiss.doclib.server.MytestingView"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="tempVO"
+      FullName="moiss.oracle.apps.moiss.doclib.server.tempVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="testVO"
+      FullName="moiss.oracle.apps.moiss.doclib.server.testVO"
+      ObjectType="ViewObject" >
+   </Containee>
+</JboPackage>

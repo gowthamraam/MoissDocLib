@@ -1,0 +1,84 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="10.1.3_1312" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="PageLayout" amDefName="moiss.oracle.apps.moiss.doclib.server.MoissAM" windowTitle="Moiss Doc Lib" title="Welcome" controllerClass="moiss.oracle.apps.fnd.moiss.webui.DocLibCO">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/FNDSSCORP.gif"/>
+         </ui:corporateBranding>
+         <ui:contents>
+            <oa:header id="Stable2" extends="/moiss/oracle/apps/fnd/moiss/webui/SearchPGRN"/>
+            <oa:tableLayout id="region11" hAlign="center">
+               <ui:contents>
+                  <oa:rowLayout id="region9">
+                     <ui:contents>
+                        <oa:cellFormat id="region10">
+                           <ui:contents>
+                              <oa:spacer id="item7" height="20"/>
+                           </ui:contents>
+                        </oa:cellFormat>
+                     </ui:contents>
+                  </oa:rowLayout>
+               </ui:contents>
+            </oa:tableLayout>
+            <oa:table id="xxMoissDocLibVO1" width="100%" rendered="true">
+               <ui:contents>
+                  <oa:messageStyledText id="DocumentName1" dataType="VARCHAR2" prompt="Document Name" viewName="DocIdUVO" viewAttr="DocumentName" maximumLength="150" required="no"/>
+                  <oa:messageStyledText id="OwningDeptDesc" dataType="VARCHAR2" prompt="Owning Dept" viewName="DocIdUVO" viewAttr="OwningDeptDesc" maximumLength="80"/>
+                  <oa:messageStyledText id="CategoryDesc" dataType="VARCHAR2" prompt="Category" viewName="DocIdUVO" viewAttr="CategoryDesc" maximumLength="80"/>
+                  <oa:messageStyledText id="DocumentNumber1" dataType="VARCHAR2" prompt="Document Number" viewName="DocIdUVO" viewAttr="DocumentNumber" maximumLength="60"/>
+                  <oa:messageStyledText id="VersionNumber" dataType="VARCHAR2" prompt="Version" viewName="DocIdUVO" viewAttr="VersionNumber" maximumLength="60"/>
+                  <oa:messageStyledText id="EffectiveStartDate1" dataType="DATE" prompt="Start Date" viewName="DocIdUVO" viewAttr="EffectiveStartDate"/>
+                  <oa:messageStyledText id="EffectiveEndDate1" dataType="DATE" prompt="End Date" viewName="DocIdUVO" viewAttr="EffectiveEndDate"/>
+                  <oa:image id="VerUpd1" rendered="${oa.PPRVO.DispAdminAttr}" use="/oracle/apps/fnd/attributesets/Buttons/Update" source="updateicon_popup_enabled" imageHeight="24" imageWidth="24" prompt="Version Update">
+                     <ui:primaryClientAction>
+                        <ui:fireAction id="fireAction11" event="VerUpd">
+                           <ui:parameters>
+                              <ui:parameter key="DocId" value="${oa.DocIdUVO.DocId}"/>
+                              <ui:parameter key="key" value="VERUPD"/>
+                           </ui:parameters>
+                        </ui:fireAction>
+                     </ui:primaryClientAction>
+                  </oa:image>
+                  <oa:messageDownload id="DocumentFile" dataType="BLOB" prompt="Open/View" viewName="DocIdUVO" viewAttr="DocumentName" contentViewAttributeName="DocumentFile"/>
+                  <oa:image id="UpdatePG" rendered="${oa.PPRVO.DispAdminAttr}" use="/oracle/apps/fnd/attributesets/Buttons/Update" source="updateicon_enabled.gif" imageHeight="24" imageWidth="24">
+                     <ui:primaryClientAction>
+                        <ui:fireAction>
+                           <ui:parameters>
+                              <ui:parameter key="DocId" value="${oa.DocIdUVO.DocId}"/>
+                              <ui:parameter key="key" value="UPDATE"/>
+                           </ui:parameters>
+                        </ui:fireAction>
+                     </ui:primaryClientAction>
+                  </oa:image>
+                  <oa:switcher id="CheckSwitcher" viewName="DocIdUVO" use="/oracle/apps/fnd/attributesets/Buttons/Delete" viewAttr="CheckSwitcher" prompt="Read/Accept">
+                     <ui:case name="CheckEnable">
+                        <oa:image id="CheckEnable" source="sysselected_status.gif" shortDesc="Delete employee action is disabled.">
+                           <ui:primaryClientAction>
+                              <ui:fireAction event="delete"/>
+                           </ui:primaryClientAction>
+                        </oa:image>
+                     </ui:case>
+                     <ui:case name="CheckDisable">
+                        <oa:messageCheckBox id="CheckDisable" viewAttr="SelectFlag" text="" prompt="" defaultValue="" checkedValue="Y" unCheckedValue="" viewName="DocIdUVO">
+                           <ui:primaryClientAction>
+                              <ui:fireAction event="Boad" id="fireAction4"/>
+                           </ui:primaryClientAction>
+                        </oa:messageCheckBox>
+                     </ui:case>
+                  </oa:switcher>
+                  <oa:image id="delete" destination="" source="deleteicon_enabled.gif" shortDesc="Delete employee action is enabled." prompt="Delete">
+                     <ui:primaryClientAction>
+                        <ui:fireAction event="delete" id="fireAction3">
+                           <ui:parameters>
+                              <ui:parameter key="DocumentNumber" value="${oa.DocLibVO.DocumentNumber}"/>
+                              <ui:parameter key="VersionNumber" value="${oa.DocLibVO.VersionNumber}"/>
+                           </ui:parameters>
+                        </ui:fireAction>
+                     </ui:primaryClientAction>
+                  </oa:image>
+               </ui:contents>
+            </oa:table>
+         </ui:contents>
+      </oa:pageLayout>
+   </content>
+</page>

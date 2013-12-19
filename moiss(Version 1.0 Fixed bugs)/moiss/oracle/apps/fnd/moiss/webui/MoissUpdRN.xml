@@ -1,0 +1,27 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oa:header version="10.1.3_1312" xml:lang="en-US" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$" text="Update your Details">
+   <ui:contents>
+      <oa:defaultSingleColumn id="region1" headerDisabled="true">
+         <ui:contents>
+            <oa:defaultSingleColumn id="MoissPIVO" headerDisabled="true">
+               <ui:contents>
+                  <oa:messageTextInput id="EmployeeNumber" dataType="NUMBER" prompt="EmployeeNumber" viewName="MoissPIVO" viewAttr="EmployeeNumber"/>
+                  <oa:messageTextInput id="EmployeeName123" dataType="VARCHAR2" prompt="EmployeeName" viewName="MoissPIVO" viewAttr="EmployeeName" maximumLength="240" serverUnvalidated="false">
+                     <ui:primaryClientAction>
+                        <ui:fireAction event="test"/>
+                     </ui:primaryClientAction>
+                  </oa:messageTextInput>
+                  <oa:messageTextInput id="PunchDate" dataType="DATE" prompt="PunchDate" viewName="MoissPIVO" viewAttr="PunchDate" tipType="dateFormat"/>
+                  <oa:messageTextInput id="State" dataType="VARCHAR2" prompt="State" viewName="MoissPIVO" viewAttr="State" maximumLength="30"/>
+                  <oa:messageTextInput id="ManEntryYn" dataType="VARCHAR2" prompt="ManEntryYn" viewName="MoissPIVO" viewAttr="ManEntryYn" maximumLength="1"/>
+               </ui:contents>
+            </oa:defaultSingleColumn>
+            <oa:submitButton id="Go" prompt="Go">
+               <ui:primaryClientAction>
+                  <ui:firePartialAction event="Save"/>
+               </ui:primaryClientAction>
+            </oa:submitButton>
+         </ui:contents>
+      </oa:defaultSingleColumn>
+   </ui:contents>
+</oa:header>

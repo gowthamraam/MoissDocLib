@@ -1,0 +1,191 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="10.1.3_1312" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="PageLayout" amDefName="moiss.oracle.apps.fnd.moiss.server.MoissPunchAM" windowTitle="Punch Info" title="Punch Info" controllerClass="moiss.oracle.apps.fnd.moiss.webui.MoissPICO">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/FNDSSCORP.gif"/>
+         </ui:corporateBranding>
+         <ui:pageStatus>
+            <oa:flowLayout id="region1">
+               <ui:contents>
+                  <oa:staticStyledText id="PageHelp" styleClass="OraInstructionText"/>
+               </ui:contents>
+            </oa:flowLayout>
+         </ui:pageStatus>
+         <ui:contents>
+            <oa:header id="ResultsBasedSearch" rendered="false">
+               <ui:contents>
+                  <oa:query id="QueryRN" mode="resultsBasedSearch" dispSimple="true" dispCustomized="true">
+                     <ui:contents>
+                        <oa:table id="ResultsTable" width="100%" text="Punch Info">
+                           <ui:contents>
+                              <oa:messageStyledText id="EmployeeNumber" dataType="NUMBER" prompt="Employee Number" viewAttr="EmployeeNumber" selectiveSearchCriteria="true" queryable="true"/>
+                              <oa:messageStyledText id="EmployeeName" dataType="VARCHAR2" prompt="Employee Name" viewName="MoissPIVO" viewAttr="EmployeeName" maximumLength="240" selectiveSearchCriteria="true" sortState="yes" queryable="true"/>
+                              <oa:messageStyledText id="PunchDate" dataType="VARCHAR2" prompt="Punch Date" viewName="MoissPIVO" viewAttr="PunchDate" selectiveSearchCriteria="true" queryable="true" tipType="dateFormat"/>
+                              <oa:messageStyledText id="State" dataType="VARCHAR2" prompt="State" viewName="MoissPIVO" viewAttr="State" maximumLength="30" selectiveSearchCriteria="true" queryable="true"/>
+                              <oa:messageStyledText id="NewState" dataType="VARCHAR2" prompt="New State" viewName="MoissPIVO" viewAttr="NewState" maximumLength="30" selectiveSearchCriteria="true" queryable="true"/>
+                              <oa:messageStyledText id="Exception" dataType="VARCHAR2" prompt="Exception" viewName="MoissPIVO" viewAttr="Exception" maximumLength="30"/>
+                              <oa:messageStyledText id="Department" dataType="VARCHAR2" prompt="Department" viewName="MoissPIVO" viewAttr="Department" maximumLength="30"/>
+                              <oa:messageStyledText id="ManEntryYn" dataType="VARCHAR2" prompt="Manual Entry" viewName="MoissPIVO" viewAttr="ManEntryYn" maximumLength="1" selectiveSearchCriteria="true" queryable="true"/>
+                              <oa:messageStyledText id="Remarks" dataType="VARCHAR2" prompt="Remarks" viewName="MoissPIVO" viewAttr="Remarks" maximumLength="2000"/>
+                           </ui:contents>
+                        </oa:table>
+                     </ui:contents>
+                  </oa:query>
+               </ui:contents>
+            </oa:header>
+            <oa:header id="SearchRN">
+               <ui:contents>
+                  <oa:tableLayout id="Search_RN" hAlign="center">
+                     <ui:contents>
+                        <oa:rowLayout id="region10">
+                           <ui:contents>
+                              <oa:cellFormat id="CellOne">
+                                 <ui:contents>
+                                    <oa:spacer id="spacer" width="75"/>
+                                 </ui:contents>
+                              </oa:cellFormat>
+                              <oa:cellFormat id="region12">
+                                 <ui:contents>
+                                    <oa:defaultSingleColumn id="region4" headerDisabled="true">
+                                       <ui:contents>
+                                          <oa:defaultDoubleColumn id="region2" headerDisabled="true">
+                                             <ui:contents>
+                                                <oa:messageTextInput id="EMPLOYEE_NUMBER" dataType="NUMBER" prompt="Employee Number" sortState="yes" selectiveSearchCriteria="false" queryable="true" serverUnvalidated="true"/>
+                                                <oa:messageTextInput id="EMPLOYEE_NAME" dataType="VARCHAR2" prompt="Employee Name" maximumLength="240" selectiveSearchCriteria="true" sortState="yes" queryable="true" serverUnvalidated="true"/>
+                                                <oa:messageTextInput id="PUNCH_DATE" dataType="VARCHAR2" prompt="Punch Date" selectiveSearchCriteria="true" queryable="true" tipType="dateFormat" serverUnvalidated="true"/>
+                                                <oa:messageTextInput id="DEPARTMENT" dataType="VARCHAR2" prompt="Department" maximumLength="30" serverUnvalidated="true"/>
+                                                <oa:messageTextInput id="STATE" dataType="VARCHAR2" prompt="State" maximumLength="30" selectiveSearchCriteria="true" queryable="true" serverUnvalidated="true"/>
+                                             </ui:contents>
+                                          </oa:defaultDoubleColumn>
+                                          <oa:tableLayout id="region5" hAlign="center">
+                                             <ui:contents>
+                                                <oa:rowLayout id="region6">
+                                                   <ui:contents>
+                                                      <oa:cellFormat id="region7">
+                                                         <ui:contents>
+                                                            <oa:spacer id="item1"/>
+                                                            <oa:submitButton id="Go" text="Go" prompt="Go" unvalidated="true" serverUnvalidated="true">
+                                                               <ui:primaryClientAction>
+                                                                  <ui:fireAction event="Search" id="fireAction1"/>
+                                                               </ui:primaryClientAction>
+                                                            </oa:submitButton>
+                                                            <oa:button id="Reset" text="Clear" prompt="Clear">
+                                                               <ui:primaryClientAction>
+                                                                  <ui:firePartialAction event="ClearButton"/>
+                                                               </ui:primaryClientAction>
+                                                            </oa:button>
+                                                         </ui:contents>
+                                                      </oa:cellFormat>
+                                                   </ui:contents>
+                                                </oa:rowLayout>
+                                             </ui:contents>
+                                          </oa:tableLayout>
+                                       </ui:contents>
+                                    </oa:defaultSingleColumn>
+                                 </ui:contents>
+                              </oa:cellFormat>
+                           </ui:contents>
+                        </oa:rowLayout>
+                     </ui:contents>
+                  </oa:tableLayout>
+                  <oa:advancedTable id="region3" viewName="MoissPIVO" width="100%" rendered="true">
+                     <ui:contents>
+                        <oa:columnGroup id="columnGroup1">
+                           <ui:columnHeader/>
+                           <ui:contents>
+                              <oa:column id="column18">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="sortableHeader18" prompt="Employee Number"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="EmployeeNumber3" dataType="NUMBER" prompt="Employee Number" viewAttr="EmployeeNumber" selectiveSearchCriteria="true" queryable="true"/>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="column17">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="sortableHeader17" prompt="Employee Name"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="EmployeeName2" dataType="VARCHAR2" prompt="Employee Name" viewAttr="EmployeeName" maximumLength="240" selectiveSearchCriteria="true" queryable="true"/>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="column16">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="sortableHeader16" prompt="Punch Date"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="PunchDate2" dataType="VARCHAR2" prompt="Punch Date" viewAttr="PunchDate" selectiveSearchCriteria="false" queryable="false" tipType="none" serverUnvalidated="false"/>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="column15">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="sortableHeader15" prompt="State"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="State2" dataType="VARCHAR2" prompt="State" viewAttr="State" maximumLength="30" selectiveSearchCriteria="true" queryable="true"/>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="column14">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="sortableHeader14" prompt="New State"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="NewState1" dataType="VARCHAR2" prompt="New State" viewAttr="NewState" maximumLength="30" selectiveSearchCriteria="true" queryable="true"/>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="column13">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="sortableHeader13" prompt="Exception"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="Exception1" dataType="VARCHAR2" prompt="Exception" viewAttr="Exception" maximumLength="30"/>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="column1">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="sortableHeader1" prompt="Department"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="Department2" dataType="VARCHAR2" prompt="Department" viewAttr="Department" maximumLength="30"/>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="column110">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="sortableHeader110" prompt="Manual Entry"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="ManEntryYn1" dataType="VARCHAR2" prompt="Manual Entry" viewAttr="ManEntryYn" maximumLength="1" selectiveSearchCriteria="true" queryable="true"/>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="column19">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="sortableHeader19" prompt="Remarks"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="Remarks1" dataType="VARCHAR2" prompt="Remarks" viewAttr="Remarks" maximumLength="2000"/>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="column181" rendered="false">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="sortableHeader181" prompt="Update"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:flowLayout id="region13">
+                                       <ui:contents>
+                                          <oa:image id="popupIMG" popupEnabled="false" use="/oracle/apps/fnd/attributesets/Buttons/Update" source="updateicon_enabled.gif"/>
+                                          <oa:popUp id="EmployeePopup" popupRegion="/moiss/oracle/apps/fnd/moiss/webui/moissPunchPopupRN" popupTitle="Update" height="190" width="380"/>
+                                       </ui:contents>
+                                    </oa:flowLayout>
+                                 </ui:contents>
+                              </oa:column>
+                           </ui:contents>
+                        </oa:columnGroup>
+                     </ui:contents>
+                  </oa:advancedTable>
+               </ui:contents>
+            </oa:header>
+         </ui:contents>
+      </oa:pageLayout>
+   </content>
+</page>

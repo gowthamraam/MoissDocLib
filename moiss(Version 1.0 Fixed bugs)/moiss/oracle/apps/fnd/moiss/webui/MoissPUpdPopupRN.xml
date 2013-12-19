@@ -1,0 +1,175 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oa:header version="10.1.3_1312" xml:lang="en-US" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$" standalone="true" controllerClass="moiss.oracle.apps.fnd.moiss.webui.MoissUpdPopupCO">
+   <ui:contents>
+      <oa:tableLayout id="InfoRN" hAlign="center">
+         <ui:contents>
+            <oa:rowLayout id="RowOne" width="100%">
+               <ui:contents>
+                  <oa:cellFormat id="region76">
+                     <ui:contents>
+                        <oa:spacer id="item56" width="30"/>
+                     </ui:contents>
+                  </oa:cellFormat>
+                  <oa:cellFormat id="region3" hAlign="left" vAlign="top" width="35%">
+                     <ui:contents>
+                        <oa:defaultSingleColumn id="region71633118" headerDisabled="true">
+                           <ui:contents>
+                              <oa:messageTextInput id="EmpName" prompt="Employee Name" required="yes"/>
+                              <oa:messageTextInput id="EmpNo" prompt="Employee Number" required="yes"/>
+                              <oa:messageStyledText id="EmpName1" rendered="${oa.MoissTempVO.Upd}" styleClass="OraDataText" prompt="Employee Name"/>
+                              <oa:messageStyledText id="EmpNo1" rendered="${oa.MoissTempVO.Upd}" styleClass="OraDataText" prompt="Employee Number"/>
+                           </ui:contents>
+                        </oa:defaultSingleColumn>
+                     </ui:contents>
+                  </oa:cellFormat>
+                  <oa:cellFormat id="region13"/>
+                  <oa:cellFormat id="region14" hAlign="left" vAlign="top" width="55%">
+                     <ui:contents>
+                        <oa:defaultSingleColumn id="region71633119" headerDisabled="true">
+                           <ui:contents>
+                              <oa:messageTextInput id="Dept" prompt="Department" required="yes"/>
+                              <oa:messageTextInput id="DateFieldItem" tipType="dateFormat" dataType="DATE" viewName="MoissCIOVO" viewAttr="Date">
+                                 <ui:primaryClientAction>
+                                    <ui:fireAction event="updatefordate"/>
+                                 </ui:primaryClientAction>
+                              </oa:messageTextInput>
+                              <oa:messageStyledText id="Dept1" rendered="${oa.MoissTempVO.Upd}" styleClass="OraDataText" prompt="Department"/>
+                              <oa:messageStyledText id="DateFieldItem1" rendered="${oa.MoissTempVO.Upd}" styleClass="OraDataText" prompt="Date"/>
+                           </ui:contents>
+                        </oa:defaultSingleColumn>
+                     </ui:contents>
+                  </oa:cellFormat>
+               </ui:contents>
+            </oa:rowLayout>
+            <oa:rowLayout id="RowThree">
+               <ui:contents>
+                  <oa:cellFormat id="region716">
+                     <ui:contents>
+                        <oa:spacer id="item515" height="20"/>
+                     </ui:contents>
+                  </oa:cellFormat>
+               </ui:contents>
+            </oa:rowLayout>
+         </ui:contents>
+      </oa:tableLayout>
+      <oa:tableLayout id="SpacerRN" hAlign="center">
+         <ui:contents>
+            <oa:rowLayout id="RowTwo">
+               <ui:contents>
+                  <oa:cellFormat id="region15">
+                     <ui:contents>
+                        <oa:spacer id="item13" width="135"/>
+                     </ui:contents>
+                  </oa:cellFormat>
+                  <oa:cellFormat id="region5"/>
+               </ui:contents>
+            </oa:rowLayout>
+         </ui:contents>
+      </oa:tableLayout>
+      <oa:tableLayout id="InOutRN" hAlign="center">
+         <ui:contents>
+            <oa:rowLayout id="RowFive1" width="50%" rendered="true">
+               <ui:contents>
+                  <oa:cellFormat id="region81">
+                     <ui:contents>
+                        <oa:defaultDoubleColumn id="Cio1" headerDisabled="false">
+                           <ui:contents>
+                              <oa:messageStyledText id="In1" prompt="" maximumLength="255" styleClass="OraDataText"/>
+                              <oa:messageStyledText id="Out1" prompt="" maximumLength="255" styleClass="OraDataText"/>
+                              <oa:messageStyledText id="MCin11" prompt="" columns="10" tipType="shortTip" dataType="VARCHAR2" serverUnvalidated="true" viewName="MoissCIOVO" viewAttr="Cin1" tipMessageAppShortName="ak" tipMessageName="HH24:MM" maximumLength="255" rendered="${oa.MoissTempVO.Upd}" styleClass="OraFieldText"/>
+                              <oa:messageStyledText id="MCout11" prompt="" columns="10" tipType="shortTip" dataType="VARCHAR2" serverUnvalidated="true" viewName="MoissCIOVO" viewAttr="Cout1" tipMessageAppShortName="ak" tipMessageName="HH24:MM" maximumLength="255" rendered="${oa.MoissTempVO.Upd}" styleClass="OraFieldText"/>
+                              <oa:messageTextInput id="MCin1" prompt="" columns="10" tipType="shortTip" dataType="VARCHAR2" serverUnvalidated="true" viewName="MoissCIOVO" viewAttr="Cin1" tipMessageAppShortName="ak" tipMessageName="HH24:MM" maximumLength="255" rendered="${oa.MoissTempVO.Cre}"/>
+                              <oa:messageTextInput id="MCout1" prompt="" columns="10" tipType="shortTip" dataType="VARCHAR2" serverUnvalidated="true" viewName="MoissCIOVO" viewAttr="Cout1" tipMessageAppShortName="ak" tipMessageName="HH24:MM" maximumLength="255" rendered="${oa.MoissTempVO.Cre}"/>
+                           </ui:contents>
+                        </oa:defaultDoubleColumn>
+                     </ui:contents>
+                  </oa:cellFormat>
+                  <oa:cellFormat id="region961">
+                     <ui:contents>
+                        <oa:defaultDoubleColumn id="Cio2" headerDisabled="false">
+                           <ui:contents>
+                              <oa:messageStyledText id="In2" prompt="" maximumLength="255" styleClass="OraDataText"/>
+                              <oa:messageStyledText id="Out2" prompt="" maximumLength="255" styleClass="OraDataText"/>
+                              <oa:messageStyledText id="MCin21" prompt="" tipType="shortTip" columns="10" dataType="VARCHAR2" viewName="MoissCIOVO" viewAttr="Cin2" maximumLength="255" tipMessageAppShortName="ak" tipMessageName="HH24:MM" rendered="${oa.MoissTempVO.Upd}" styleClass="OraFieldText"/>
+                              <oa:messageStyledText id="MCout21" prompt="" tipType="shortTip" columns="10" dataType="VARCHAR2" viewName="MoissCIOVO" viewAttr="Cout2" maximumLength="255" tipMessageAppShortName="ak" tipMessageName="HH24:MM" rendered="${oa.MoissTempVO.Upd}" styleClass="OraFieldText"/>
+                              <oa:messageTextInput id="MCin2" prompt="" tipType="shortTip" columns="10" dataType="VARCHAR2" viewName="MoissCIOVO" viewAttr="Cin2" maximumLength="255" tipMessageAppShortName="ak" tipMessageName="HH24:MM" rendered="${oa.MoissTempVO.Cre}"/>
+                              <oa:messageTextInput id="MCout2" prompt="" tipType="shortTip" columns="10" dataType="VARCHAR2" viewName="MoissCIOVO" viewAttr="Cout2" maximumLength="255" tipMessageAppShortName="ak" tipMessageName="HH24:MM" rendered="${oa.MoissTempVO.Cre}"/>
+                           </ui:contents>
+                        </oa:defaultDoubleColumn>
+                     </ui:contents>
+                  </oa:cellFormat>
+                  <oa:cellFormat id="region71633113">
+                     <ui:contents>
+                        <oa:defaultDoubleColumn id="Cio3" headerDisabled="false">
+                           <ui:contents>
+                              <oa:messageStyledText id="In3" prompt="" maximumLength="255" styleClass="OraDataText"/>
+                              <oa:messageStyledText id="Out3" prompt="" maximumLength="255" styleClass="OraDataText"/>
+                              <oa:messageStyledText id="MCin31" prompt="" columns="10" tipType="shortTip" dataType="VARCHAR2" viewName="MoissCIOVO" viewAttr="Cin3" maximumLength="255" tipMessageAppShortName="ak" tipMessageName="HH24:MM" rendered="${oa.MoissTempVO.Upd}" styleClass="OraFieldText"/>
+                              <oa:messageStyledText id="MCout31" prompt="" columns="10" tipType="shortTip" dataType="VARCHAR2" viewName="MoissCIOVO" viewAttr="Cout3" maximumLength="255" tipMessageAppShortName="ak" tipMessageName="HH24:MM" rendered="${oa.MoissTempVO.Upd}" styleClass="OraFieldText"/>
+                              <oa:messageTextInput id="MCin3" prompt="" columns="10" tipType="shortTip" dataType="VARCHAR2" viewName="MoissCIOVO" viewAttr="Cin3" maximumLength="255" tipMessageAppShortName="ak" tipMessageName="HH24:MM" rendered="${oa.MoissTempVO.Cre}"/>
+                              <oa:messageTextInput id="MCout3" prompt="" columns="10" tipType="shortTip" dataType="VARCHAR2" viewName="MoissCIOVO" viewAttr="Cout3" maximumLength="255" tipMessageAppShortName="ak" tipMessageName="HH24:MM" rendered="${oa.MoissTempVO.Cre}"/>
+                           </ui:contents>
+                        </oa:defaultDoubleColumn>
+                     </ui:contents>
+                  </oa:cellFormat>
+                  <oa:cellFormat id="region71633114">
+                     <ui:contents>
+                        <oa:defaultDoubleColumn id="Cio4" headerDisabled="false">
+                           <ui:contents>
+                              <oa:messageStyledText id="In4" prompt="" maximumLength="255" styleClass="OraDataText"/>
+                              <oa:messageStyledText id="Out4" prompt="" maximumLength="255" styleClass="OraDataText"/>
+                              <oa:messageStyledText id="MCin41" prompt="" columns="10" tipType="shortTip" dataType="VARCHAR2" viewName="MoissCIOVO" viewAttr="Cin4" maximumLength="255" tipMessageAppShortName="ak" tipMessageName="HH24:MM" rendered="${oa.MoissTempVO.Upd}" styleClass="OraFieldText"/>
+                              <oa:messageStyledText id="MCout41" prompt="" columns="10" tipType="shortTip" dataType="VARCHAR2" viewName="MoissCIOVO" viewAttr="Cout4" maximumLength="255" tipMessageAppShortName="ak" tipMessageName="HH24:MM" rendered="${oa.MoissTempVO.Upd}" styleClass="OraFieldText"/>
+                              <oa:messageTextInput id="MCin4" prompt="" columns="10" tipType="shortTip" dataType="VARCHAR2" viewName="MoissCIOVO" viewAttr="Cin4" maximumLength="255" tipMessageAppShortName="ak" tipMessageName="HH24:MM" rendered="${oa.MoissTempVO.Cre}"/>
+                              <oa:messageTextInput id="MCout4" prompt="" columns="10" tipType="shortTip" dataType="VARCHAR2" viewName="MoissCIOVO" viewAttr="Cout4" maximumLength="255" tipMessageAppShortName="ak" tipMessageName="HH24:MM" rendered="${oa.MoissTempVO.Cre}"/>
+                           </ui:contents>
+                        </oa:defaultDoubleColumn>
+                     </ui:contents>
+                  </oa:cellFormat>
+               </ui:contents>
+            </oa:rowLayout>
+         </ui:contents>
+      </oa:tableLayout>
+      <oa:tableLayout id="ButtonRN" hAlign="center">
+         <ui:contents>
+            <oa:rowLayout id="RowSix">
+               <ui:contents>
+                  <oa:cellFormat id="region7161">
+                     <ui:contents>
+                        <oa:spacer id="item5151" height="20"/>
+                     </ui:contents>
+                  </oa:cellFormat>
+               </ui:contents>
+            </oa:rowLayout>
+            <oa:rowLayout id="RowSeven">
+               <ui:contents>
+                  <oa:cellFormat id="region75">
+                     <ui:contents>
+                        <oa:spacer id="item55" width="800"/>
+                     </ui:contents>
+                  </oa:cellFormat>
+                  <oa:cellFormat id="region12">
+                     <ui:contents>
+                        <oa:submitButton id="Save" text="Save" prompt="Save">
+                           <ui:primaryClientAction>
+                              <ui:firePartialAction event="Save"/>
+                           </ui:primaryClientAction>
+                        </oa:submitButton>
+                        <oa:submitButton id="Clear" text="Clear" prompt="Clear">
+                           <ui:primaryClientAction>
+                              <ui:fireAction event="ClearButton"/>
+                           </ui:primaryClientAction>
+                        </oa:submitButton>
+                        <oa:submitButton id="Exit" text="Exit" prompt="Exit">
+                           <ui:primaryClientAction>
+                              <ui:fireAction event="ExitPG" id="fireAction1"/>
+                           </ui:primaryClientAction>
+                        </oa:submitButton>
+                     </ui:contents>
+                  </oa:cellFormat>
+               </ui:contents>
+            </oa:rowLayout>
+         </ui:contents>
+      </oa:tableLayout>
+   </ui:contents>
+</oa:header>
