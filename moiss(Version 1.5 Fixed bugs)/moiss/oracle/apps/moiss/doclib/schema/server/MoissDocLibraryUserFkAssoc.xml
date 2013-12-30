@@ -20,7 +20,6 @@
       <DesignTime>
          <Attr Name="_finderName" Value="DocLibEO" />
          <Attr Name="_aggregation" Value="0" />
-         <Attr Name="_foreignKey" Value="moiss.oracle.apps.moiss.doclib.schema.server.DocLibEO.MoissDocLibraryPk" />
          <Attr Name="_minCardinality" Value="1" />
          <Attr Name="_isUpdateable" Value="true" />
       </DesignTime>
@@ -28,15 +27,13 @@
    <AssociationEnd
       Name="DocLibUserEO"
       Cardinality="-1"
-      Owner="moiss.oracle.apps.moiss.doclib.schema.server.DocLibUserEO"
-      HasOwner="true" >
+      Owner="moiss.oracle.apps.moiss.doclib.schema.server.DocLibUserEO" >
       <AttrArray Name="Attributes">
          <Item Value="moiss.oracle.apps.moiss.doclib.schema.server.DocLibUserEO.DocId" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_finderName" Value="DocLibUserEO" />
          <Attr Name="_aggregation" Value="0" />
-         <Attr Name="_foreignKey" Value="moiss.oracle.apps.moiss.doclib.schema.server.DocLibUserEO.MoissDocLibraryUserFk" />
          <Attr Name="_isUpdateable" Value="true" />
       </DesignTime>
    </AssociationEnd>

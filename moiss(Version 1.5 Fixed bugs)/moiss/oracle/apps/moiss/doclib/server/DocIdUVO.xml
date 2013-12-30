@@ -197,4 +197,7 @@ SELECT   DOCUMENT_NUMBER,
       AliasName="VIEW_ATTR"
       SQLType="VARCHAR" >
    </ViewAttribute>
+   <AttrArray Name="KeyAttributes">
+      <Item Value="DocId" />
+   </AttrArray>
 </ViewObject>

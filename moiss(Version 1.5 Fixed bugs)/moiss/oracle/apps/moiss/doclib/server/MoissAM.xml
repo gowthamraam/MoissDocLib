@@ -26,15 +26,15 @@
       ViewObjectName="moiss.oracle.apps.moiss.doclib.poplist.server.categoryVO" >
    </ViewUsage>
    <ViewUsage
-      Name="DocLibVO"
-      ViewObjectName="moiss.oracle.apps.moiss.doclib.server.DocLibVO" >
-   </ViewUsage>
-   <ViewUsage
       Name="DocIdUVO"
       ViewObjectName="moiss.oracle.apps.moiss.doclib.server.DocIdUVO" >
    </ViewUsage>
    <ViewUsage
       Name="DocLibVO1"
+      ViewObjectName="moiss.oracle.apps.moiss.doclib.server.DocLibVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="DocLibVO"
       ViewObjectName="moiss.oracle.apps.moiss.doclib.server.DocLibVO" >
    </ViewUsage>
 </AppModule>

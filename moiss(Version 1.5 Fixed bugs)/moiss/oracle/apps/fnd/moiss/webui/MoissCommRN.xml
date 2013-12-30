@@ -128,11 +128,11 @@
                                           <ui:firePartialAction event="ClearButton"/>
                                        </ui:primaryClientAction>
                                     </oa:submitButton>
-                                    <oa:submitButton id="Exit" text="Exit" prompt="Exit">
+                                    <oa:button id="Exit" text="Exit" prompt="Exit" serverUnvalidated="true">
                                        <ui:primaryClientAction>
-                                          <ui:fireAction event="linktoviewpg"/>
+                                          <ui:firePartialAction event="linktoviewpg" formSubmitted="false"/>
                                        </ui:primaryClientAction>
-                                    </oa:submitButton>
+                                    </oa:button>
                                  </ui:contents>
                               </oa:pageButtonBar>
                               <oa:spacer id="item411" height="50"/>

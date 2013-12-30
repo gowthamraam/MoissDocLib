@@ -26,8 +26,7 @@
       Type="oracle.jbo.domain.Number"
       ColumnType="NUMBER"
       SQLType="NUMERIC"
-      TableName="MOISS_DOC_LIBRARY"
-      PrimaryKey="true" >
+      TableName="MOISS_DOC_LIBRARY" >
       <DesignTime>
          <Attr Name="_DisplaySize" Value="22" />
       </DesignTime>
@@ -328,6 +327,15 @@
          <Attr Name="_DisplaySize" Value="22" />
       </DesignTime>
    </Attribute>
+   <Attribute
+      Name="RowID"
+      ColumnName="ROWID"
+      Type="oracle.jbo.domain.RowID"
+      ColumnType="ROWID"
+      SQLType="ROWID"
+      TableName="MOISS_DOC_LIBRARY"
+      PrimaryKey="true" >
+   </Attribute>
    <AccessorAttribute
       Name="DocLibUserEO"
       Association="moiss.oracle.apps.moiss.doclib.schema.server.MoissDocLibraryUserFkAssoc"
@@ -337,13 +345,13 @@
       IsUpdateable="false" >
    </AccessorAttribute>
    <Key
-      Name="MoissDocLibraryPk" >
+      Name="DoclibeoPrimaryKey" >
       <AttrArray Name="Attributes">
-         <Item Value="moiss.oracle.apps.moiss.doclib.schema.server.DocLibEO.DocId" />
+         <Item Value="moiss.oracle.apps.moiss.doclib.schema.server.DocLibEO.RowID" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_isPrimary" Value="true" />
-         <Attr Name="_DBObjectName" Value="MOISS_DOC_LIBRARY_PK" />
+         <Attr Name="_DBObjectName" Value="DOCLIBEO_PRIMARY_KEY" />
       </DesignTime>
    </Key>
    <Key

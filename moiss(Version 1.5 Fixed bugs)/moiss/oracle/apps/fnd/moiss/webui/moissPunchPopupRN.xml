@@ -19,13 +19,13 @@
                                     <oa:messageLovInput id="EmpNo" prompt="Employee Number" required="yes" externalListOfValues="/moiss/oracle/apps/fnd/moiss/lov/webui/popPunchLOVRN" queryable="true" rendered="${oa.MoissTempVO.Cre}">
                                        <lovMappings>
                                           <lovMap id="lovMap2" lovItem="PersonId" resultTo="EmpNo" criteriaFrom="EmpNo"/>
-                                          <lovMap id="lovMap4" lovItem="FullName" resultTo="EmpName"/>
+                                          <lovMap id="lovMap3" lovItem="FullName" resultTo="EmpName"/>
                                        </lovMappings>
                                     </oa:messageLovInput>
                                     <oa:messageLovInput id="EmpName" prompt="Employee Name" required="yes" externalListOfValues="/moiss/oracle/apps/fnd/moiss/lov/webui/popPunchLOVRN" queryable="true" rendered="${oa.MoissTempVO.Cre}">
                                        <lovMappings>
                                           <lovMap id="lovMap1" lovItem="FullName" resultTo="EmpName" criteriaFrom="EmpName"/>
-                                          <lovMap id="lovMap3" lovItem="PersonId" resultTo="EmpNo"/>
+                                          <lovMap id="lovMap4" lovItem="PersonId" resultTo="EmpNo"/>
                                        </lovMappings>
                                     </oa:messageLovInput>
                                     <oa:messageStyledText id="EmpName1" rendered="${oa.MoissTempVO.Upd}" styleClass="OraDataText" prompt="Employee Name"/>

@@ -8,6 +8,7 @@ import oracle.jbo.RowIterator;
 import oracle.jbo.domain.BlobDomain;
 import oracle.jbo.domain.Date;
 import oracle.jbo.domain.Number;
+import oracle.jbo.domain.RowID;
 import oracle.jbo.server.AttributeDefImpl;
 import oracle.jbo.server.EntityDefImpl;
 // ---------------------------------------------------------------------
@@ -42,7 +43,8 @@ public class DocLibEOImpl extends OAEntityImpl {
     public static final int LASTUPDATEDBY = 23;
     public static final int LASTUPDATEDATE = 24;
     public static final int LASTUPDATELOGIN = 25;
-    public static final int DOCLIBUSEREO = 26;
+    public static final int ROWID = 26;
+    public static final int DOCLIBUSEREO = 27;
 
 
     private static OAEntityDefImpl mDefinitionObject;
@@ -432,6 +434,8 @@ public class DocLibEOImpl extends OAEntityImpl {
             return getLastUpdateDate();
         case LASTUPDATELOGIN:
             return getLastUpdateLogin();
+        case ROWID:
+            return getRowID();
         case DOCLIBUSEREO:
             return getDocLibUserEO();
         default:
@@ -522,6 +526,9 @@ public class DocLibEOImpl extends OAEntityImpl {
         case LASTUPDATELOGIN:
             setLastUpdateLogin((Number)value);
             return;
+        case ROWID:
+            setRowID((RowID)value);
+            return;
         default:
             super.setAttrInvokeAccessor(index, value, attrDef);
             return;
@@ -532,6 +539,19 @@ public class DocLibEOImpl extends OAEntityImpl {
      */
     public RowIterator getDocLibUserEO() {
         return (RowIterator)getAttributeInternal(DOCLIBUSEREO);
+    }
+
+
+    /**Gets the attribute value for RowID, using the alias name RowID
+     */
+    public RowID getRowID() {
+        return (RowID)getAttributeInternal(ROWID);
+    }
+
+    /**Sets <code>value</code> as the attribute value for RowID
+     */
+    public void setRowID(RowID value) {
+        setAttributeInternal(ROWID, value);
     }
 
     /**Creates a Key object based on given key constituents

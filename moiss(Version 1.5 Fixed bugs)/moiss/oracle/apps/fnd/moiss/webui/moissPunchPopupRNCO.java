@@ -67,10 +67,11 @@ public class moissPunchPopupRNCO extends OAControllerImpl
     tvo.getCurrentRow().setAttribute("Pref", false);
       tvo.getCurrentRow().setAttribute("Pref1", true);
     String key=pageContext.getParameter("key");
+ 
     tourl=pageContext.getParameter("urlPG");
 
     pref=pageContext.getParameter("pref")+"RN";           //For Showing whether we want the LOV Region or not
-//pref="INVLOVRN";
+pref="INVLOVRN";
     this.pref=pref;
     if(pref.equals("INVLOVRN"))
     {
@@ -81,7 +82,7 @@ public class moissPunchPopupRNCO extends OAControllerImpl
     }
     this.tourl=tourl;
     //      key="UPDATE";
-     key="CREATE";
+   key="CREATE";
     this.key=key;
     
     
@@ -113,19 +114,19 @@ public class moissPunchPopupRNCO extends OAControllerImpl
             System.out.println("  Value of Upd Attr"+tvo.getCurrentRow().getAttribute("Cre"));
           
            
-                HashMap hm=new HashMap();
-                hm.put("In1", "10:58");
-                hm.put("Out1", "11:10");
-                hm.put("In2", "11:58");
-           //     hm.put("Out2", "12:10");
-                hm.put("In3", "14:58");
-                hm.put("Out3", "15:58");
-        //      hm.put("In4", "16:58");
-                hm.put("Out4", "17:58");
-                hm.put("EmpName", "Gowtham");
-                hm.put("EmpNo", "285");
-                hm.put("Dept", "OPERATIONS");
-                hm.put("DateFieldItem","17-Dec-2013");
+             
+//                hm.put("In1", "10:58");
+//                hm.put("Out1", "11:10");
+//                hm.put("In2", "11:58");
+//           //     hm.put("Out2", "12:10");
+//                hm.put("In3", "14:58");
+//                hm.put("Out3", "15:58");
+//        //      hm.put("In4", "16:58");
+//                hm.put("Out4", "17:58");
+//                hm.put("EmpName", "Gowtham");
+//                hm.put("EmpNo", "285");
+//                hm.put("Dept", "OPERATIONS");
+//                hm.put("DateFieldItem","17-Dec-2013");
                 
  //             Dont know why After using Iterator im not able to get the values        
 //                Iterator it = hm.entrySet().iterator();
@@ -135,19 +136,19 @@ public class moissPunchPopupRNCO extends OAControllerImpl
 //                    it.remove(); // avoids a ConcurrentModificationException
 //                }
             
-    //          
-    //        hm.put("In1",  pageContext.getParameter("In1"));
-    //        hm.put("Out1",  pageContext.getParameter("Out1"));
-    //        hm.put("In2",  pageContext.getParameter("In2"));
-    //        hm.put("Out2",  pageContext.getParameter("Out2"));
-    //        hm.put("In3",  pageContext.getParameter("In3"));
-    //        hm.put("Out3",  pageContext.getParameter("Out3"));
-    //        hm.put("In4",  pageContext.getParameter("In4"));
-    //        hm.put("Out4",  pageContext.getParameter("Out4"));
-    //        hm.put("EmpName", pageContext.getParameter("EmpName"));
-    //        hm.put("EmpNo", pageContext.getParameter("EmpNo"));
-    //        hm.put("Dept",  pageContext.getParameter("Dept"));
-    //        hm.put("DateFieldItem",pageContext.getParameter("DateFieldItem"));
+            HashMap hm=new HashMap();  
+            hm.put("In1",  pageContext.getParameter("In1"));
+            hm.put("Out1",  pageContext.getParameter("Out1"));
+            hm.put("In2",  pageContext.getParameter("In2"));
+            hm.put("Out2",  pageContext.getParameter("Out2"));
+            hm.put("In3",  pageContext.getParameter("In3"));
+            hm.put("Out3",  pageContext.getParameter("Out3"));
+            hm.put("In4",  pageContext.getParameter("In4"));
+            hm.put("Out4",  pageContext.getParameter("Out4"));
+            hm.put("EmpName", pageContext.getParameter("EmpName"));
+            hm.put("EmpNo", pageContext.getParameter("EmpNo"));
+            hm.put("Dept",  pageContext.getParameter("Dept"));
+            hm.put("DateFieldItem",pageContext.getParameter("DateFieldItem"));
                 
                 
                 
@@ -1169,6 +1170,14 @@ public class moissPunchPopupRNCO extends OAControllerImpl
          {     
              HashMap hm=new HashMap();  //Tried to send parameter through SetFowardURL
              hm.put("key", this.key);
+             hm.put("employeeNumber", pageContext.getParameter("employeeNumber"));
+             hm.put("organizationId", pageContext.getParameter("organizationId"));
+             hm.put("fromDate", pageContext.getParameter("fromDate"));
+             hm.put("toDate", pageContext.getParameter("toDate"));
+             hm.put("url", pageContext.getParameter("/moiss"));
+               
+              
+              
              pageContext.forwardImmediatelyToCurrentPage(hm, false, "Y");
                
           }
@@ -1181,6 +1190,12 @@ public class moissPunchPopupRNCO extends OAControllerImpl
              
             HashMap hm=new HashMap();  //Tried to send parameter through SetFowardURL
             hm.put("key", this.key); 
+            hm.put("employeeNumber", pageContext.getParameter("employeeNumber"));
+            hm.put("organizationId", pageContext.getParameter("organizationId"));
+            hm.put("fromDate", pageContext.getParameter("fromDate"));
+            hm.put("toDate", pageContext.getParameter("toDate"));
+            hm.put("url", pageContext.getParameter("/moiss"));
+            hm.put("fromManualEntry", pageContext.getParameter("Y"));
             
             // pageContext.
             pageContext.setForwardURL(tourl,

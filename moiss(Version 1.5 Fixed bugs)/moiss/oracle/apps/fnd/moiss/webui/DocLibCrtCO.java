@@ -78,7 +78,6 @@ public class DocLibCrtCO extends OAControllerImpl
       OAViewObject vo=(OAViewObject)am.findViewObject("DocLibVO");
       OAViewObject pprvo=(OAViewObject)am.findViewObject("PPRVO");
       String keyparam=pageContext.getParameter("key");
-    
       this.keyparam=keyparam;
       System.out.println("Value of Key PAram is "+keyparam);
       am.invokeMethod("handlePPRAction");
@@ -147,6 +146,7 @@ public class DocLibCrtCO extends OAControllerImpl
        System.out.println(pprrow.getAttribute("UpdTableDispAttr")+""+pprrow.getAttribute("EnaCrtReg"));
       Serializable[] sn={"DocLibVO"};
         am.invokeMethod("createRecord", sn);   
+   
 
    }
 
@@ -206,7 +206,7 @@ public class DocLibCrtCO extends OAControllerImpl
                           pprrow.setAttribute("UpdTableDispAttr", Boolean.FALSE);
                      
                  }
-      
+   //   pprrow.setAttribute("UpdTableDispAttr", Boolean.FALSE);
  ////---------------------------------------------------------------------------------------------------------------------------------------------------------------------    
 //                OAHeaderBean hb=(OAHeaderBean)webBean.findChildRecursive("region1");
 //                hb.
@@ -220,30 +220,33 @@ public class DocLibCrtCO extends OAControllerImpl
    * a region.
    * @param pageContext the current OA page context
    * @param webBean the web bean corresponding to the region
+   * 
+   * 1. From TEsting : Make Sure the Message Download VO should have a primary key to get the exact file download
+   * 2.
    */
    int i=0;
+   int esd=0;
+   int eed=0;
+    Date ddate=null;
+    java.util.Date esdate=null;
+    java.util.Date  eedate=null;
   public void processFormRequest(OAPageContext pageContext, OAWebBean webBean)
   {
     super.processFormRequest(pageContext, webBean); 
    
-   
-          System.out.println("Welcome to PFR");
-          OAViewObject votest=(OAViewObject)am.findViewObject("DocLibVO");
-          System.out.println("Testing For VO"+votest);
-    System.out.println("Event Gets invoked while uploading the Document"+pageContext.getParameter(EVENT_PARAM));
-    System.out.println("Event Gets invoked while uploading the Document"+pageContext.getParameter(SOURCE_PARAM));
-     
-     
-    System.out.println("Control came to create "+this.keyparam);
+      System.out.println("Welcome to PFR");
+      OAViewObject votest=(OAViewObject)am.findViewObject("DocLibVO");
+      System.out.println("Testing For VO"+votest);
+      System.out.println("Event Gets invoked while uploading the Document"+pageContext.getParameter(EVENT_PARAM));
+      System.out.println("Event Gets invoked while uploading the Document"+pageContext.getParameter(SOURCE_PARAM));
+      System.out.println("Control came to create "+this.keyparam);
     
 ////---------------------------------------------------------------------------------------------------------------------------------------------------------------------    
     
     if(pageContext.getParameter(EVENT_PARAM).equals("Save")&&(this.keyparam.equals("VERUPD")))
     {
     
-    //  Object a[]=pageContext.getParameter("attrparam");
-  
-         System.out.println("Control came to Version Update "+this.keyparam);        
+        System.out.println("Control came to Version Update "+this.keyparam);        
         OAViewObject vo=(OAViewObject)am.findViewObject("DocLibVO");
         OADBTransaction txn=(OADBTransaction)am.getOADBTransaction();
         System.out.println("Values of VO and Txn"+vo+txn);
@@ -253,12 +256,14 @@ public class DocLibCrtCO extends OAControllerImpl
         am.invokeMethod("apply");
          OAException confirmMessage = new OAException("Record Has Been Saved", OAException.CONFIRMATION);
         pageContext.putDialogMessage(confirmMessage);
-        
-      //  pageContext.forwardImmediatelyToCurrentPage(null,false,null);
     }
+    
+////---------------------------------------------------------------------------------------------------------------------------------------------------------------------    
+/*Create Logic and Validations for checking*/
+    
        if(pageContext.getParameter(EVENT_PARAM).equals("Save")&&(this.keyparam.equals("CREATE")))
        {
-       System.out.println("Control came to create "+this.keyparam);
+             System.out.println("Control came to create "+this.keyparam);
            //Go to Save Button and Disable server side validation to true As it checks the event before the occurenece
            OAViewObject vo=(OAViewObject)am.findViewObject("DocLibVO");
            OADBTransaction txn=(OADBTransaction)am.getOADBTransaction();
@@ -266,62 +271,80 @@ public class DocLibCrtCO extends OAControllerImpl
            if(pageContext.getParameter("DocumentNumber")!=null&&pageContext.getParameter("DocumentNumber")!=""&&pageContext.getParameter("EffectiveStartDate1")!=null&&pageContext.getParameter("EffectiveStartDate1")!=""&&pageContext.getParameter("DocumentName1")!=null&&pageContext.getParameter("DocumentName1")!="")
            {
            
+              
+              
+              //-------------Document Number Validation 
                if(pageContext.getParameter("DocumentNumber").equals("0"))
                {
-               
-                   OAException confirmMessage = new OAException("Please Enter a Valid Document Number", OAException.CONFIRMATION);
+                   OAException confirmMessage = new OAException("Please Enter a Valid Document Number", OAException.ERROR);
                    pageContext.putDialogMessage(confirmMessage);
                }
+               //-------------Version Number Validation 
                if(pageContext.getParameter("VersionNumber")!=null)
                {
-               String vNo=pageContext.getParameter("VersionNumber");
-               System.out.println("vNo"+vNo);
-               CommonClass cc=new CommonClass();
-               //cc.validatePattern(vNo, "^([[A-ZA-Z0-9\\.\\-])*$");
-               
-               //   if(cc.validatePattern(vNo, "^([[A-ZA-Z0-9\\.\\-])*$"))
-                   if(cc.validatePattern(vNo, "^[A-Za-z0-9-_.]+$"))
+                       String vNo=pageContext.getParameter("VersionNumber");
+                       System.out.println("vNo"+vNo);
+                       CommonClass cc=new CommonClass();
+                       //   if(cc.validatePattern(vNo, "^([[A-ZA-Z0-9\\.\\-])*$"))
+                           if(cc.validatePattern(vNo, "^[A-Za-z0-9-_.]+$"))
+                       {                 
+                         System.out.println("Value Matches ");
+                       }
+                       else
+                       {
+                           OAException confirmMessage = new OAException("Please Enter a Valid Version  Number without symbol", OAException.ERROR);
+                           pageContext.putDialogMessage(confirmMessage);
+                           System.out.println("Value Does not Match ");
+                       }
+                       
+               }
+               //-------------Effective Start Date End Date Validation
+               System.out.println("Whether the User has entered the Input for EffSD and EEDATE"+esd+eed);
+               if(esd>0&&eed>0)
                {
-               
-                 //  OAException confirmMessage = new OAException("Value matches for version Number", OAException.CONFIRMATION);
-                //   pageContext.putDialogMessage(confirmMessage);
-                
-               
-                 System.out.println("Value Matches ");
+                   System.out.println("Inside the Effective Start Date and End Date Validation");
+                   if(esdate.compareTo(eedate)==1)
+                   {
+                        System.out.println("Date is invalid");
+//                     Serializable sj[]={"DocLibVO", "EffectiveEndDate", "ATTR_EXCEPTION"}; //VO name, Attrname, Exception Message Name
+//                     am.invokeMethod("throwAttrErr", sj) ;
+                         OAException confirmMessage = new OAException("Please make sure Effective Start Date is lesser than Effective end Date", OAException.ERROR);
+                         pageContext.putDialogMessage(confirmMessage);
+                        
+                   }
+                   else 
+                   {
+                       System.out.println("Date is valid"); 
+                   }
                }
-               else
+               System.out.println("Values of VO and Txn"+vo+txn);
+               Number seqNoSno=txn.getSequenceValue("MOISS_DOC_ID_S");
+               System.out.println("Sequence Number is "+seqNoSno);
+               vo.getCurrentRow().setAttribute("DocId", seqNoSno);
+               System.out.println("Doc Id Vo"+vo.getCurrentRow().getAttribute("DocId")); 
+               if(i==1)
                {
-               
-                   OAException confirmMessage = new OAException("Please Enter a Valid Version  Number without sybol", OAException.CONFIRMATION);
-                   pageContext.putDialogMessage(confirmMessage);
-                   System.out.println("Value Does not Match ");
-               
+                   vo.getCurrentRow().setAttribute("MustRead", "Y");
+                   System.out.println(vo.getCurrentRow().getAttribute("MustRead"));
                }
-               
-               }
-               
-           System.out.println("Values of VO and Txn"+vo+txn);
-           Number seqNoSno=txn.getSequenceValue("MOISS_DOC_ID_S");
-            System.out.println("Sequence Number is "+seqNoSno);
-             vo.getCurrentRow().setAttribute("DocId", seqNoSno);
-           System.out.println("Doc Id Vo"+vo.getCurrentRow().getAttribute("DocId")); 
-           if(i==1)
-           {
-               vo.getCurrentRow().setAttribute("MustRead", "Y");
-               System.out.println(vo.getCurrentRow().getAttribute("MustRead"));
-           }
-           System.out.println("Lets Check"+vo.getCurrentRow().getAttribute("OwningDept")+vo.getCurrentRow().getAttribute("OwningDeptDesc")+vo.getCurrentRow().getAttribute("Category")+vo.getCurrentRow().getAttribute("CategoryDesc"));
-           am.invokeMethod("apply");
-            OAException confirmMessage = new OAException("Record Has Been Saved", OAException.CONFIRMATION);
-           pageContext.putDialogMessage(confirmMessage);
+               System.out.println("Lets Check"+vo.getCurrentRow().getAttribute("OwningDept")+vo.getCurrentRow().getAttribute("OwningDeptDesc")+vo.getCurrentRow().getAttribute("Category")+vo.getCurrentRow().getAttribute("CategoryDesc"));
+               am.invokeMethod("apply");
+               OAException confirmMessage = new OAException("Record Has Been Saved", OAException.CONFIRMATION);
+               pageContext.putDialogMessage(confirmMessage);
            }
            else
            {
-               OAException confirmMessage = new OAException("Please fill out the required Fields", OAException.CONFIRMATION);
+               OAException confirmMessage = new OAException("Please fill out the required Fields /n Document Number, Name , Effective Start Date", OAException.CONFIRMATION);
                pageContext.putDialogMessage(confirmMessage);
            }
          //  pageContext.forwardImmediatelyToCurrentPage(null,false,null);
        }
+    
+    
+    
+////---------------------------------------------------------------------------------------------------------------------------------------------------------------------    
+    
+    
     
     
           if(pageContext.getParameter(EVENT_PARAM).equals("Save")&&(this.keyparam.equals("UPDATE")))
@@ -337,87 +360,56 @@ public class DocLibCrtCO extends OAControllerImpl
           }
     
     
-             if(pageContext.getParameter(EVENT_PARAM).equals("docNoVal")&&(this.keyparam.equals("CREATE")))
+         if(pageContext.getParameter(EVENT_PARAM).equals("docNoVal")&&(this.keyparam.equals("CREATE")))
+         {
+             System.out.println("Inside the Doc no Val Document no Validation "+EVENT_PARAM+this.keyparam);
+             if(pageContext.getParameter("DocumentNumber").equals("0"))
              {
-                 System.out.println("Inside the Doc no Val Document no Validation "+EVENT_PARAM+this.keyparam);
-                 if(pageContext.getParameter("DocumentNumber").equals("0"))
-                 {
-                 
-                     OAException confirmMessage = new OAException("Please Enter a Valid Document Number", OAException.CONFIRMATION);
-                     pageContext.putDialogMessage(confirmMessage);
-                 }
-             }
-    if(pageContext.getParameter(EVENT_PARAM).equals("verNoVal")&&(this.keyparam.equals("CREATE")))
-    {
-        System.out.println("Inside the Doc no  Version Number Validation "+EVENT_PARAM+this.keyparam);
-        
-        String vNo=pageContext.getParameter("VersionNumber");
-        System.out.println("vNo"+vNo);
-        CommonClass cc=new CommonClass();
-        //cc.validatePattern(vNo, "^([[A-ZA-Z0-9\\.\\-])*$");
-        
-     //   if(cc.validatePattern(vNo, "^([[A-ZA-Z0-9\\.\\-])*$"))
-            if(cc.validatePattern(vNo, "^[A-Za-z0-9-_.]+$"))
-        {
-        
-          //  OAException confirmMessage = new OAException("Value matches for version Number", OAException.CONFIRMATION);
-         //   pageContext.putDialogMessage(confirmMessage);
-         
-      
-          System.out.println("Value Matches ");
-        }
-        else
-        {
-        
-            OAException confirmMessage = new OAException("Please Enter a Valid Version  Number without sybol", OAException.CONFIRMATION);
-            pageContext.putDialogMessage(confirmMessage);
-            System.out.println("Value Does not Match ");
-        
-        }
-    }
              
-    
-    
-    
+                 OAException confirmMessage = new OAException("Please Enter a Valid Document Number", OAException.CONFIRMATION);
+                 pageContext.putDialogMessage(confirmMessage);
+             }
+         }
+         
+        if(pageContext.getParameter(EVENT_PARAM).equals("verNoVal")&&(this.keyparam.equals("CREATE")))
+        {
+            System.out.println("Inside the Doc no  ersion Number Validation "+EVENT_PARAM+this.keyparam);
+            String vNo=pageContext.getParameter("VersionNumber");
+            System.out.println("vNo"+vNo);
+            CommonClass cc=new CommonClass(); 
+            if(cc.validatePattern(vNo, "^[A-Za-z0-9-_.]+$"))
+            {
+                   System.out.println("Value Matches ");
+            }
+            else
+            {
+                OAException confirmMessage = new OAException("Please Enter a Valid Version  Number without symbol", OAException.CONFIRMATION);
+                pageContext.putDialogMessage(confirmMessage);
+                System.out.println("Value Does not Match ");
+            }
+        }
+        
       if (pageContext.getParameter(EVENT_PARAM).equals("ClearButton"))
       {     
           HashMap hm=new HashMap();  //Tried to send parameter through SetFowardURL
-           hm.put("keyparam", this.keyparam);
-          
-          pageContext.forwardImmediatelyToCurrentPage(hm, false, "Y");
-          
-//          //Parameters has been set in Image Item.. Look up for Reference
-//            pageContext.setForwardURL("OA.jsp?page=/moiss/oracle/apps/fnd/moiss/webui/DocLibCrtPG",
-//            null,
-//            //OAWebBeanConstants.KEEP_NO_DISPLAY_MENU_CONTEXT,
-//             OAWebBeanConstants.KEEP_NO_DISPLAY_MENU_CONTEXT,
-//            null,
-//            hm, //HashMap
-//            
-//            false,
-//            OAWebBeanConstants.ADD_BREAD_CRUMB_YES,
-//            OAWebBeanConstants.IGNORE_MESSAGES);       
-        
-        
+          hm.put("keyparam", this.keyparam);
+          pageContext.forwardImmediatelyToCurrentPage(hm, false, "Y");   
       }
+      
+      
           if(pageContext.getParameter(EVENT_PARAM).equals("linktoviewpg"))
          {
-         
               HashMap hm = new HashMap(1);
-              hm.put("param", "ADMIN");           
-          
-             // pageContext.
+              hm.put("param", "ADMIN");       
               pageContext.setForwardURL("OA.jsp?page=/moiss/oracle/apps/fnd/moiss/webui/DocLibPG",
               null,
               //OAWebBeanConstants.KEEP_NO_DISPLAY_MENU_CONTEXT,
                OAWebBeanConstants.KEEP_NO_DISPLAY_MENU_CONTEXT,
               null,
               hm, 
-              true,
+              false,
               OAWebBeanConstants.ADD_BREAD_CRUMB_YES,
               OAWebBeanConstants.IGNORE_MESSAGES);
-              
- 
           }
 
 
@@ -428,16 +420,25 @@ public class DocLibCrtCO extends OAControllerImpl
         
     if(pageContext.getParameter(EVENT_PARAM).equals("esdate"))
     {
-        System.out.println("The date has Been Typed"+pageContext.getParameter("EffectiveStartDate"));
-        Date ddate = (Date)am.findViewObject("DocLibVO").first().getAttribute("EffectiveStartDate");
-        OADBTransaction txn=(OADBTransaction) am.getOADBTransaction();
-        Date currDate=(Date)txn.getCurrentDBDate();
-       
-        long dobDate = ddate.dateValue().getTime();
-        
-       
+       String start_dt = (am.findViewObject("DocLibVO").first().getAttribute("EffectiveStartDate")).toString();           //Obtaining the Date from the user Input for verification
+       System.out.println("Value obtained from PG"+start_dt);
+       Serializable sr[]={start_dt, "yyyy-MM-dd"};
+       Serializable[] srg={am.invokeMethod("getUtilDate", sr)};
+       java.util.Date esdate = (java.util.Date)srg[0];
+       this.esdate=esdate;
+       System.out.println("Value of EsDate from AM is "+esdate);
+       if(esdate!=null)
+        {
+            this.esd++;
+        }
+        //Logic for getting the Current Date
+//        OADBTransaction txn=(OADBTransaction) am.getOADBTransaction();
+//        Date currDate=(Date)txn.getCurrentDBDate();
+//        long dobDate = ddate.dateValue().getTime();
     }
-    
+  
+////---------------------------------------------------------------------------------------------------------------------------------------------------------------------    
+  
     
     
     if("mustread".equals(pageContext.getParameter(EVENT_PARAM)))
@@ -446,67 +447,56 @@ public class DocLibCrtCO extends OAControllerImpl
         i=1;
         this.i=i;
        
-        
     }
 ////---------------------------------------------------------------------------------------------------------------------------------------------------------------------    
        
        /* Effective End Date using here */
        
-       
     if(pageContext.getParameter(EVENT_PARAM).equals("eedate"))
     {
          java.util.Date  eedate=null;
-        java.util.Date cdate=null;
-        System.out.println("The date has Been Typed"+pageContext.getParameter("EffectiveEndDate1"));
-        try{
-                    String start_dt = (pageContext.getParameter("EffectiveEndDate1")).toString();           //Obtaining the Date from the user Input for verification
-                    DateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy"); //Formatting  --> Have to dig inside it   yyyy-MM-dd
-                    eedate = (java.util.Date)formatter.parse(start_dt);           //Conversion of String to Date
-                    System.out.println("Output for Date lets check"+eedate); 
-                   
-             /*Getting Current Date from DB*/      
-                    OADBTransaction txn=(OADBTransaction) am.getOADBTransaction();
-                    oracle.jbo.domain.Date currDate=txn.getCurrentDBDate();       //Obtaining Current date
-                    
-                    String currdate1=currDate.toString();   //Convering to String to make to java.util.Date
-                    System.out.println("Current Date is "+currdate1);
-                    currdate1=currdate1.substring(0, 10);
-                    System.out.println(currdate1);
-                    DateFormat formatter1 = new SimpleDateFormat("yyyy-MM-dd");
-                    cdate = (java.util.Date)formatter1.parse(currdate1);   //Gets converted
-                    System.out.println("Output for Date lets check"+cdate);    //Testing Output
-           } 
+         java.util.Date cdate=null;
+        String start_dt = (pageContext.getParameter("EffectiveEndDate1")).toString();
         
- 
-        catch(Exception e)
+        Serializable sr[]={start_dt, "dd-MMM-yyyy"};
+        Serializable[] srg={am.invokeMethod("getUtilDate", sr)};
+         eedate = (java.util.Date)srg[0];
+         this.eedate=eedate;
+        System.out.println("Value of EEDate from AM is "+eedate);
+        //-------------Logic Moved to Save on Commit.....
+//               
+//             /*Getting Current Date from DB*/      
+////                    OADBTransaction txn=(OADBTransaction) am.getOADBTransaction();
+////                    oracle.jbo.domain.Date currDate=txn.getCurrentDBDate();       //Obtaining Current date
+////                    
+////                    String currdate1=currDate.toString();   //Convering to String to make to java.util.Date
+////                    System.out.println("Current Date is "+currdate1);
+////                    currdate1=currdate1.substring(0, 10);
+////                    System.out.println(currdate1);
+////                    DateFormat formatter1 = new SimpleDateFormat("yyyy-MM-dd");
+////                    cdate = (java.util.Date)formatter1.parse(currdate1);   //Gets converted
+////                    System.out.println("Output for Date lets check"+cdate);    //Testing Output
+//           } 
+  
+//        System.out.println("ESdate and eedate"+esdate+eedate);
+//        Serializable sf[]={esdate, eedate};
+//        OAApplicationModule am=(OAApplicationModule)pageContext.getApplicationModule(webBean);
+//         am.invokeMethod("effecDateComp", sf) ;
+//        if(esdate.compareTo(eedate)==1)
+//        {
+//             System.out.println("Date is invalid");
+//          Serializable sj[]={"DocLibVO", "EffectiveEndDate", "ATTR_EXCEPTION"}; //VO name, Attrname, Exception Message Name
+//          am.invokeMethod("throwAttrErr", sj) ;
+//      }
+//        else 
+//        {
+//            System.out.println("Date is valid"); 
+//           
+//        }
+//        
+        if(eedate!=null)
         {
-            System.out.println("Exception Occured during Date "+e);
-          
-        }
-        if(cdate.compareTo(eedate)==1)
-        {
-             System.out.println("Date is invalid");
-            OARow row=(OARow)votest.getCurrentRow();
-            OAViewObject vo=(OAViewObject)am.findViewObject("DocLibVO");
-           DocLibEOImpl eo=null;
-           // OAEntityImpl eo=null;
-            throw new OAAttrValException (
-                                       OAException.TYP_VIEW_OBJECT, // indicates VO row source
-                                       "DocLibVO", //View Object full usage name
-                                       row.getKey(), // row primary key
-                                       "EffectiveEndDate", //attribute name
-                                       (pageContext.getParameter("EffectiveEndDate1")).toString(), // bad attribute value 
-                                       "AK", //message application short name
-                                       "ATTR_EXCEPTION"); // message name
-//            eo.setAttributeInternal("EffectiveEndDate", (pageContext.getParameter("EffectiveEndDate1")).toString());
-           
-        }
-        else 
-        {
-           
-              
-            System.out.println("Date is valid"); 
-           
+            this.eed++;
         }
       
     }
@@ -521,54 +511,59 @@ public class DocLibCrtCO extends OAControllerImpl
 
 
 ////----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-       System.out.println(EVENT_PARAM);
-    OAApplicationModule am = (OAApplicationModule) pageContext.getApplicationModule(webBean);
-    // String fileName = null;
-    // DataObject fileUploadData =(DataObject)pageContext.getNamedDataObject("ssofileupload");
-    // fileName = (String)fileUploadData.selectValue(null, "sso.csv");
-    //
-    // System.out.println("Filename"+fileName);
-    if("PARAM_TO_BE_ENTERED".equals(pageContext.getParameter(EVENT_PARAM)))
-    {
-
-    System.out.println("Inside display");
-
-    DataObject fileUploadData =(DataObject)pageContext.getNamedDataObject("DocumentFile1");
-    System.out.println("File upload Data   "+fileUploadData);
-    String ufileName = null;
-    String contentType = null;
-    Long fileSize = null;
-    Integer fileType = new Integer(6);
-    BlobDomain uploadedByteStream = null;
-    BufferedReader in = null;
-
-    try
-    {
-    System.out.println("Inside try");
-    
-    ufileName = (String)fileUploadData.selectValue(null, "UPLOAD_FILE_NAME");
-        contentType =(String)fileUploadData.selectValue(null, "UPLOAD_FILE_MIME_TYPE");
- 
-     
-    System.out.println("Filename"+ufileName+"Content Type"+contentType
-    
-    );
-     
-    uploadedByteStream = (BlobDomain)fileUploadData.selectValue(null, (fileUploadData.selectValue(null, "UPLOAD_FILE_NAME")).toString());
-    System.out.println("After uploadedByteStream "+uploadedByteStream);
-//    in = new BufferedReader(new InputStreamReader(uploadedByteStream.getBinaryStream()));
-//    System.out.println("After BufferedReader "+in);
 
 
-    fileSize = new Long(uploadedByteStream.getLength());
-        fileSize = new Long(uploadedByteStream.getLength());
-
-    System.out.println("fileSize"+fileSize);
-    }
-    catch(NullPointerException ex)
-    {
-    throw new OAException("Please Select a File to Upload", OAException.ERROR);
-    }
+/*On Testing for the logic that whether it works or not*/
+//       System.out.println(EVENT_PARAM);
+//    OAApplicationModule am = (OAApplicationModule) pageContext.getApplicationModule(webBean);
+//    // String fileName = null;
+//    // DataObject fileUploadData =(DataObject)pageContext.getNamedDataObject("ssofileupload");
+//    // fileName = (String)fileUploadData.selectValue(null, "sso.csv");
+//    //
+//    // System.out.println("Filename"+fileName);
+//    if("PARAM_TO_BE_ENTERED".equals(pageContext.getParameter(EVENT_PARAM)))
+//    {
+//
+//    System.out.println("Inside display");
+//
+//    DataObject fileUploadData =(DataObject)pageContext.getNamedDataObject("DocumentFile1");
+//    System.out.println("File upload Data   "+fileUploadData);
+//    String ufileName = null;
+//    String contentType = null;
+//    Long fileSize = null;
+//    Integer fileType = new Integer(6);
+//    BlobDomain uploadedByteStream = null;
+//    BufferedReader in = null;
+//
+//    try
+//    {
+//    System.out.println("Inside try");
+//    
+//    
+//    
+//    ufileName = (String)fileUploadData.selectValue(null, "UPLOAD_FILE_NAME");
+//        contentType =(String)fileUploadData.selectValue(null, "UPLOAD_FILE_MIME_TYPE");
+// 
+//     
+//    System.out.println("Filename"+ufileName+"Content Type"+contentType
+//    
+//    );
+//     
+//    uploadedByteStream = (BlobDomain)fileUploadData.selectValue(null, (fileUploadData.selectValue(null, "UPLOAD_FILE_NAME")).toString());
+//    System.out.println("After uploadedByteStream "+uploadedByteStream);
+////    in = new BufferedReader(new InputStreamReader(uploadedByteStream.getBinaryStream()));
+////    System.out.println("After BufferedReader "+in);
+//
+//
+//    fileSize = new Long(uploadedByteStream.getLength());
+//        fileSize = new Long(uploadedByteStream.getLength());
+//
+//    System.out.println("fileSize"+fileSize);
+//    }
+//    catch(NullPointerException ex)
+//    {
+//    throw new OAException("Please Select a File to Upload", OAException.ERROR);
+//    }
 ////----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //        try
@@ -688,5 +683,4 @@ public class DocLibCrtCO extends OAControllerImpl
 
  ////---------------------------------------------------------------------------------------------------------------------------------------------------------------------    
 
-}
 }

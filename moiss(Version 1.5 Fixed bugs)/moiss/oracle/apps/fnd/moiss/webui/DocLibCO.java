@@ -82,7 +82,7 @@ public class DocLibCO extends OAControllerImpl
       OAApplicationModule am=(OAApplicationModule)pageContext.getApplicationModule(webBean); 
       OAViewObject vo=(OAViewObject)am.findViewObject("DocLibVO");
               String role=pageContext.getParameter("param");
-      role="ADMIN";
+//role="ADMIN";
       this.role=role;
       System.out.println("Val in role is sfjsflhsljf"+role);
       
@@ -132,8 +132,10 @@ public class DocLibCO extends OAControllerImpl
         
             String userName = pageContext.getUserName();
          
+        System.out.println( "User Name is of this user is "+row.getAttribute("EnaCrtReg"));
+            System.out.println( "User Name is of this user is "+row.getAttribute("DispAdminAttr"));
+   
         System.out.println( "User Name is of this user is "+userName);
-        
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
        
         
@@ -207,7 +209,7 @@ public class DocLibCO extends OAControllerImpl
                OAWebBeanConstants.KEEP_NO_DISPLAY_MENU_CONTEXT,
               null,
               hm, 
-              true,
+              false,
               OAWebBeanConstants.ADD_BREAD_CRUMB_YES,
               OAWebBeanConstants.IGNORE_MESSAGES);
           }
@@ -808,6 +810,7 @@ public class DocLibCO extends OAControllerImpl
 //            
 //      }
 //      */
+
 
              }
     }
